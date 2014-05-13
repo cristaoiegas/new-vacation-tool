@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import com.requirements.Application;
 import com.steps.DepartmentMenuSteps;
 import com.steps.LogInSteps;
+import com.steps.NewVacationSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
@@ -25,17 +26,23 @@ public class LogInTest {
     @ManagedPages(defaultUrl = "http://192.168.1.68:9080/login")
     public Pages pages;
 
+  @Steps
+  public LogInSteps logInSteps;
+  
     @Steps
-    public LogInSteps logInSteps;
-    @Steps
-   
     public DepartmentMenuSteps enterDeparmentMenu;
+  
+    @Steps
+    public NewVacationSteps newVacationrequest;
    
     @Test
     public void testare() {
     	logInSteps.openHomePage();
     	logInSteps.logIn("george", "gimmy");
     	enterDeparmentMenu.click_newVacationSection();
-    }
+    	newVacationrequest.click_newVacationReq();
+    	
+    	//logInSteps.logOut();
+    } 
 
 }
