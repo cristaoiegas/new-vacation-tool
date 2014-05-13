@@ -24,13 +24,14 @@ public class LogInTest {
     @ManagedPages(defaultUrl = "http://192.168.1.68:9080/login")
     public Pages pages;
 
-    @Steps
-    public LogInSteps logInSteps;
+  @Steps
+  public LogInSteps logInSteps;
 
     @Test
     public void testare() {
     	logInSteps.openHomePage();
     	logInSteps.logIn("george", "gimmy");
-    }
+    	//logInSteps.logOut();
+    } 
 
 }
