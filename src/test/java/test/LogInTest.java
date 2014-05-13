@@ -37,12 +37,12 @@ public class LogInTest {
     public NewVacationSteps newVacationrequest;
    
     @Test
-    public void testare() {
+    public void testare() throws InterruptedException {
     	logInSteps.openHomePage();
     	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
     	enterDeparmentMenu.click_newVacationSection();
     	newVacationrequest.click_newVacationReq();
-    	
+    	Thread.sleep(5000);
     	//logInSteps.logOut();
     } 
 

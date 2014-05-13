@@ -13,11 +13,11 @@ import com.pages.NewVacationPage;
 
 public class NewVacationSteps extends ScenarioSteps {
 
-     NewVacationPage newVacationPage; 
+    NewVacationPage newVacationPage; 
     
     @Step
     public void click_newVacationReq(){
-    	newVacationPage.click_newVacationRequest();
+    	newVacationPage.click_myFreeDays();
     	
     }
  

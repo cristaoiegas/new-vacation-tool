@@ -18,8 +18,8 @@ import ch.lambdaj.function.convert.Converter;
 public class DeparmentMenuPage extends PageObject {
 
 	@FindBy(css="a[href*=new-vacation]")               
-	
 	private WebElementFacade newVacationSection;
+	
 	public void click_newVacationSection(){
 		element(newVacationSection).waitUntilVisible();
 		newVacationSection.click();
