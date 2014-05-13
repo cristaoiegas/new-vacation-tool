@@ -17,7 +17,7 @@ import ch.lambdaj.function.convert.Converter;
 @DefaultUrl("http://en.wiktionary.org/wiki/Wiktionary:Main_Page")
 public class DictionaryPage extends PageObject {
 
-	@FindBy(name = "search")
+	@FindBy(name = "search")    
 	private WebElementFacade searchTerms;
 	
 	@FindBy(css = "a[href='/wiki/apple']")
@@ -51,7 +51,7 @@ public class DictionaryPage extends PageObject {
 		return new Converter<WebElement, String>() {
 			public String convert(WebElement from) {
 				return from.getText();
-			}//
+			}
 		};
 	}
 }
