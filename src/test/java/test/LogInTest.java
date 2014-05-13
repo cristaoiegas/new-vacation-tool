@@ -32,9 +32,9 @@ public class LogInTest {
     public DepartmentMenuSteps enterDeparmentMenu;
    
     @Test
-    public void searching_by_keyword_apple_should_display_the_corresponding_article() {
+    public void testare() {
     	logInSteps.openHomePage();
-    	logInSteps.logIn("", "");
+    	logInSteps.logIn("george", "gimmy");
     	enterDeparmentMenu.click_newVacationSection();
     }
 
