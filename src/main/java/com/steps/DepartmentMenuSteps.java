@@ -8,11 +8,11 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 
 import com.pages.DictionaryPage;
-import com.pages.EnterNewVacationPage;
+import com.pages.DeparmentMenuPage;
 
-public class EnterNewVacationSectionSteps extends ScenarioSteps {
+public class DepartmentMenuSteps extends ScenarioSteps {
 
-    EnterNewVacationPage newVacationPage;
+    DeparmentMenuPage newVacationPage;
     
     @Step
     public void click_newVacationSection(){

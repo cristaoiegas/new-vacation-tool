@@ -15,12 +15,13 @@ import org.openqa.selenium.WebElement;
 import ch.lambdaj.function.convert.Converter;
 
 @DefaultUrl("http://192.168.1.68:9080/web/qa-department")
-public class EnterNewVacationPage extends PageObject {
+public class DeparmentMenuPage extends PageObject {
 
-	@FindBy(css="a href =http://192.168.1.68:9080/web/qa-department/new-vacation")
-	private WebElementFacade newVacationSection;
+	@FindBy(css="a[href*=new-vacation]")               
 	
+	private WebElementFacade newVacationSection;
 	public void click_newVacationSection(){
+		element(newVacationSection).waitUntilVisible();
 		newVacationSection.click();
 		
 	}

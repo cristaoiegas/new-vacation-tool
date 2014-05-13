@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
+import com.steps.DepartmentMenuSteps;
 import com.steps.LogInSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
@@ -26,11 +27,15 @@ public class LogInTest {
 
     @Steps
     public LogInSteps logInSteps;
-
+    @Steps
+   
+    public DepartmentMenuSteps enterDeparmentMenu;
+   
     @Test
     public void searching_by_keyword_apple_should_display_the_corresponding_article() {
     	logInSteps.openHomePage();
-    	logInSteps.logIn("george", "Progres.1862");
+    	logInSteps.logIn("", "");
+    	enterDeparmentMenu.click_newVacationSection();
     }
 
 }
