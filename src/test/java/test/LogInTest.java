@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
+import com.steps.DepartmentMenuSteps;
 import com.steps.LogInSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
@@ -26,11 +27,15 @@ public class LogInTest {
 
   @Steps
   public LogInSteps logInSteps;
-
+    @Steps
+   
+    public DepartmentMenuSteps enterDeparmentMenu;
+   
     @Test
     public void testare() {
     	logInSteps.openHomePage();
     	logInSteps.logIn("george", "gimmy");
+    	enterDeparmentMenu.click_newVacationSection();
     	//logInSteps.logOut();
     } 
 
