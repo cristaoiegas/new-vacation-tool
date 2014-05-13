@@ -15,7 +15,7 @@ public class LoginPage extends PageObject {
 	private WebElementFacade password;  // pass
 	
 	@FindBy(css = "input[type=submit]")       // pt buton
-	private WebElement signInButton;;
+	private WebElement signInButton;
 
 	public void enter_userName(String keywordUsername) {        
 		element(userName).waitUntilVisible();
