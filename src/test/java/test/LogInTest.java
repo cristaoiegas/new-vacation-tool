@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
+import com.requirements.tools.Constants;
 import com.steps.DepartmentMenuSteps;
 import com.steps.LogInSteps;
 import com.steps.NewVacationSteps;
@@ -38,7 +39,7 @@ public class LogInTest {
     @Test
     public void testare() {
     	logInSteps.openHomePage();
-    	logInSteps.logIn("george", "gimmy");
+    	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
     	enterDeparmentMenu.click_newVacationSection();
     	newVacationrequest.click_newVacationReq();
     	
