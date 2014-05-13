@@ -28,9 +28,9 @@ public class LogInTest {
     public LogInSteps logInSteps;
 
     @Test
-    public void searching_by_keyword_apple_should_display_the_corresponding_article() {
+    public void testare() {
     	logInSteps.openHomePage();
-    	logInSteps.logIn("george", "Progres.1862");
+    	logInSteps.logIn("george", "gimmy");
     }
 
 }
