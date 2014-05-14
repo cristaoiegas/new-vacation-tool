@@ -12,6 +12,9 @@ public class VacationRequestPage extends PageObject {
 	
 	@FindBy(name="endDate")               
 	private WebElement endDate;
+	
+	@FindBy(css=".aui-button.aui-button-submit >.aui-button-content input")               
+	private WebElement save;
 
 	public void clickStartDate(){
 		element(startDate).waitUntilVisible();
@@ -21,6 +24,11 @@ public class VacationRequestPage extends PageObject {
 	public void clickEndDate(){
 		element(endDate).waitUntilVisible();
 		endDate.click();	
+	}
+	
+	public void clickSave(){
+			element(save).waitUntilVisible();
+			save.click();
 	}
 }
 

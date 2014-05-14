@@ -49,6 +49,7 @@ public class NewRequestTest {
     	
     	newRequestSteps.enterStartDate(8, 28, 2013);
     	newRequestSteps.enterEndDate(9, 20, 2013);
+    	newRequestSteps.clickSave();
     	
     	
     	//logInSteps.logOut();
