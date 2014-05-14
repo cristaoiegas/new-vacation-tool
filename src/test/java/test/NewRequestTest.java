@@ -17,6 +17,7 @@ import com.steps.DepartmentMenuSteps;
 import com.steps.LogInSteps;
 import com.steps.NewRequestSteps;
 import com.steps.NewVacationSteps;
+import com.steps.myrequestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
@@ -39,6 +40,10 @@ public class NewRequestTest {
     
     @Steps
     public NewRequestSteps newRequestSteps;
+    
+    @Steps
+    public myrequestSteps dropDown;
+    
    
     @Test
     public void testare() throws Exception {
@@ -49,9 +54,11 @@ public class NewRequestTest {
     	
     	newRequestSteps.enterStartDate(8, 28, 2013);
     	newRequestSteps.enterEndDate(9, 20, 2013);
-    	newRequestSteps.clickSave();
-    	
-    	
+    	String vacationID = newRequestSteps.clickSave();
+    	System.out.println(vacationID);
+//    	newVacationrequest.click_myRequests();
+//    	dropDown.click_dropDown("75");
+//    	
     	//logInSteps.logOut();
     } 
 

@@ -19,6 +19,11 @@ public class NewVacationSteps extends ScenarioSteps {
     public void click_newVacationReq(){
     	newVacationPage.click_newVacationRequest();
     }
+    
+    @Step
+    public void click_myRequests(){
+    	newVacationPage.click_myRequests();
+    }
  
     
 }
