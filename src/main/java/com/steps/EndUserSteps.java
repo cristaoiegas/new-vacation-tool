@@ -49,7 +49,6 @@ public class EndUserSteps extends ScenarioSteps {
     @Step
     public void is_the_home_page() {
         dictionaryPage.open();
-        
         getDriver().manage().window().maximize();
     }
 
