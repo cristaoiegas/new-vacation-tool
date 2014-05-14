@@ -1,20 +1,19 @@
 package com.steps;
 
-import org.openqa.selenium.WebDriver;
-
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
 import com.pages.CalendarPage;
+import com.pages.NewVacationMenuPage;
 import com.pages.VacationRequestPage;
+import com.pages.WithdrawPage;
 
-public class NewRequestSteps extends ScenarioSteps {
+public class myrequestSteps extends ScenarioSteps {
 
 	VacationRequestPage vacationRequestPage;
-
+	NewVacationMenuPage myRequests;
 	CalendarPage calendarPage;
-	
-
+	WithdrawPage dropDown;
 
 	@Step
     public void enterStartDate(int month, int day, int year) throws Exception {
@@ -33,20 +32,17 @@ public class NewRequestSteps extends ScenarioSteps {
     	Thread.sleep(3000);
     }
 	
-	public void clickComment(){
-		vacationRequestPage.clickComment();
-	}
-	
-	public void insertComment(String keyword){
-		vacationRequestPage.insertComment(keyword);
-	}
-	
-	public void clickCancel(){
-		vacationRequestPage.clickCancel();
-	}
-	
 	public String clickSave() throws Exception {
 		vacationRequestPage.clickSave();
 		return vacationRequestPage.getVacationId();
+	}
+	
+    public void click_Requests(){
+    	myRequests.click_myRequests();
+    }
+    @Step
+    public void click_dropDown(String value) throws Exception {
+    	dropDown.click_nrItems(value);   
+    	Thread.sleep(4000);
 	}
 }
