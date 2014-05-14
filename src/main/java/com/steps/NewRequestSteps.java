@@ -32,6 +32,6 @@ public class NewRequestSteps extends ScenarioSteps {
 	public void clickSave() throws Exception {
 		vacationRequestPage.clickSave();
 		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 	}
 }

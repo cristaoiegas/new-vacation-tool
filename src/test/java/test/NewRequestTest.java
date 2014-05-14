@@ -45,7 +45,7 @@ public class NewRequestTest {
     	logInSteps.openHomePage();
     	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
     	enterDeparmentMenu.click_newVacationSection();
-    	newVacationrequest.click_newVacationReq();
+    	newVacationrequest.newVacationReq();;
     	
     	newRequestSteps.enterStartDate(8, 28, 2013);
     	newRequestSteps.enterEndDate(9, 20, 2013);
