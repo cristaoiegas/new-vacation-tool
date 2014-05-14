@@ -29,8 +29,8 @@ public class NewRequestTest {
     @ManagedPages(defaultUrl = "http://192.168.1.68:9080/login")
     public Pages pages;
 
-  @Steps
-  public LogInSteps logInSteps;
+    @Steps
+    public LogInSteps logInSteps;
   
     @Steps
     public DepartmentMenuSteps enterDeparmentMenu;
@@ -48,14 +48,17 @@ public class NewRequestTest {
     @Test
     public void testare() throws Exception {
     	logInSteps.openHomePage();
-    	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
+      	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
     	enterDeparmentMenu.click_newVacationSection();
-    	newVacationrequest.newVacationReq();;
+    	newVacationrequest.newVacationReq();
     	
-    	newRequestSteps.enterStartDate(8, 28, 2013);
-    	newRequestSteps.enterEndDate(9, 20, 2013);
-    	String vacationID = newRequestSteps.clickSave();
-    	System.out.println(vacationID);
+    	newRequestSteps.enterStartDate(8, 28, 2014);
+    	newRequestSteps.enterEndDate(8, 29, 2014);
+    	newRequestSteps.clickComment();
+    	newRequestSteps.insertComment("blabla");
+//    	String vacationID = newRequestSteps.clickSave();
+//    	System.out.println(vacationID);
+    	newRequestSteps.clickCancel();
 //    	newVacationrequest.click_myRequests();
 //    	dropDown.click_dropDown("75");
 //    	
