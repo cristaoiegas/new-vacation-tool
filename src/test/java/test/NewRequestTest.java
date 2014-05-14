@@ -17,7 +17,7 @@ import com.steps.DepartmentMenuSteps;
 import com.steps.LogInSteps;
 import com.steps.NewRequestSteps;
 import com.steps.NewVacationSteps;
-import com.steps.myrequestSteps;
+import com.steps.MyRequestsSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
@@ -42,7 +42,7 @@ public class NewRequestTest {
     public NewRequestSteps newRequestSteps;
     
     @Steps
-    public myrequestSteps dropDown;
+    public MyRequestsSteps dropDown;
     
    
     @Test
@@ -50,7 +50,7 @@ public class NewRequestTest {
     	logInSteps.openHomePage();
     	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
     	enterDeparmentMenu.click_newVacationSection();
-    	newVacationrequest.click_newVacationReq();
+    	newVacationrequest.newVacationReq();;
     	
     	newRequestSteps.enterStartDate(8, 28, 2013);
     	newRequestSteps.enterEndDate(9, 20, 2013);
