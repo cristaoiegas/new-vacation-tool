@@ -15,7 +15,7 @@ import org.openqa.selenium.WebElement;
 import ch.lambdaj.function.convert.Converter;
 
 	@DefaultUrl("http://192.168.1.68:9080/web/qa-department/new-vacation")
-	public class NewVacationPage extends PageObject {
+	public class NewVacationMenuPage extends PageObject {
 
 	@FindBy(css= ".nav-list a[href*='new-request']")               
 	private WebElementFacade newVacationRequest;

@@ -9,16 +9,15 @@ import org.junit.Assert;
 
 import com.pages.DictionaryPage;
 import com.pages.DeparmentMenuPage;
-import com.pages.NewVacationPage;
+import com.pages.NewVacationMenuPage;
 
 public class NewVacationSteps extends ScenarioSteps {
 
-    NewVacationPage newVacationPage; 
+    NewVacationMenuPage newVacationPage; 
     
     @Step
     public void click_newVacationReq(){
-    	newVacationPage.click_myFreeDays();
-    	
+    	newVacationPage.click_newVacationRequest();
     }
  
     
