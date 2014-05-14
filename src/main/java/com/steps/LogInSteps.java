@@ -25,6 +25,7 @@ public class LogInSteps extends ScenarioSteps {
     @Step
     public void openHomePage(){
     	loginPage.open();
+    	getDriver().manage().window().maximize();
     }
 
     

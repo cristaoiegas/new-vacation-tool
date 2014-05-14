@@ -15,13 +15,13 @@ import com.requirements.Application;
 import com.requirements.tools.Constants;
 import com.steps.DepartmentMenuSteps;
 import com.steps.LogInSteps;
+import com.steps.MyFreeDaysSteps;
 import com.steps.NewRequestSteps;
 import com.steps.NewVacationSteps;
-import com.steps.MyRequestsSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class NewRequestTest {
+public class TotalAvailableFreeDaysTest {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -29,39 +29,24 @@ public class NewRequestTest {
     @ManagedPages(defaultUrl = "http://192.168.1.68:9080/login")
     public Pages pages;
 
-    @Steps
-    public LogInSteps logInSteps;
+  @Steps
+  public LogInSteps logInSteps;
   
-    @Steps
-    public DepartmentMenuSteps enterDeparmentMenu;
+  @Steps
+  public DepartmentMenuSteps enterDeparmentMenu;
   
-    @Steps
-    public NewVacationSteps newVacationrequest;
-    
-    @Steps
-    public NewRequestSteps newRequestSteps;
-    
-    @Steps
-    public MyRequestsSteps dropDown;
-    
+  @Steps
+  public MyFreeDaysSteps myFreeDaysSteps;
+  
    
     @Test
     public void testare() throws Exception {
     	logInSteps.openHomePage();
-      	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
+    	logInSteps.logIn(Constants.user_usual, Constants.password_usual);
     	enterDeparmentMenu.click_newVacationSection();
-    	newVacationrequest.newVacationReq();
+    	myFreeDaysSteps.click_myFreeDays();
+    	myFreeDaysSteps.availableFreeDays();
     	
-    	newRequestSteps.enterStartDate(8, 28, 2014);
-    	newRequestSteps.enterEndDate(8, 29, 2014);
-    	newRequestSteps.clickComment();
-    	newRequestSteps.insertComment("blabla");
-//    	String vacationID = newRequestSteps.clickSave();
-//    	System.out.println(vacationID);
-    	newRequestSteps.clickCancel();
-//    	newVacationrequest.click_myRequests();
-//    	dropDown.click_dropDown("75");
-//    	
     	//logInSteps.logOut();
     } 
 
