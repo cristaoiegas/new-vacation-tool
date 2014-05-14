@@ -15,11 +15,12 @@ import com.requirements.Application;
 import com.requirements.tools.Constants;
 import com.steps.DepartmentMenuSteps;
 import com.steps.LogInSteps;
+import com.steps.NewRequestSteps;
 import com.steps.NewVacationSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class LogInTest {
+public class NewRequestTest {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -35,14 +36,21 @@ public class LogInTest {
   
     @Steps
     public NewVacationSteps newVacationrequest;
+    
+    @Steps
+    public NewRequestSteps newRequestSteps;
    
     @Test
-    public void testare() throws InterruptedException {
+    public void testare() throws Exception {
     	logInSteps.openHomePage();
     	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
     	enterDeparmentMenu.click_newVacationSection();
     	newVacationrequest.click_newVacationReq();
-    	Thread.sleep(5000);
+    	
+    	newRequestSteps.enterStartDate(8, 28, 2013);
+    	newRequestSteps.enterEndDate(9, 20, 2013);
+    	
+    	
     	//logInSteps.logOut();
     } 
 

@@ -14,19 +14,19 @@ import org.openqa.selenium.WebElement;
 
 import ch.lambdaj.function.convert.Converter;
 
-@DefaultUrl("http://192.168.1.68:9080/web/qa-department/new-vacation")
-public class NewVacationPage extends PageObject {
+	@DefaultUrl("http://192.168.1.68:9080/web/qa-department/new-vacation")
+	public class NewVacationMenuPage extends PageObject {
 
-	@FindBy(css= "ul[class='nav nav-list'] li:nth-child(2)")               
+	@FindBy(css= ".nav-list a[href*='new-request']")               
 	private WebElementFacade newVacationRequest;
 	
-	@FindBy(css= "ul[class='nav nav-list'] li:nth-child(3)")               
+	@FindBy(css= ".nav-list a[href*='my-request']")               
 	private WebElementFacade myRequests;
 	
-	@FindBy(css= "ul[class='nav nav-list'] li:nth-child(4)")               
+	@FindBy(css= ".nav-list a[href*='my-free-days']")               
 	private WebElementFacade myFreeDays;
 	
-	@FindBy(css= "ul[class='nav nav-list'] li:nth-child(5)")               
+	@FindBy(css= ".nav-list a[href*='free-days-history']")               
 	private WebElementFacade freeDaysHistory;
 	
 	public void click_newVacationRequest(){
