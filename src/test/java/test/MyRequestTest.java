@@ -50,12 +50,12 @@ public class MyRequestTest {
     	logInSteps.openHomePage();
     	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
     	enterDeparmentMenu.click_newVacationSection();
-    	newVacationrequest.newVacationReq();
+    	//newVacationrequest.newVacationReq();
     	
-    	newRequestSteps.enterStartDate(6, 20, 2014);
-    	newRequestSteps.enterEndDate(6, 22, 2014);
-    	String vacationID = newRequestSteps.clickSave();
-    	System.out.println(vacationID);
+    	//newRequestSteps.enterStartDate(6, 20, 2014);
+    	//newRequestSteps.enterEndDate(6, 22, 2014);
+    	//String vacationID = newRequestSteps.clickSave();
+    	//System.out.println(vacationID);
     	newVacationrequest.myRequests();
     	dropDown.click_dropDown("75");
     	
