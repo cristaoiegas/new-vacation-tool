@@ -34,6 +34,5 @@ public class NewVacationSteps extends ScenarioSteps {
     public void freeDaysHistory(){
     	newVacationPage.click_freeDaysHistory();
     }
- 
     
 }

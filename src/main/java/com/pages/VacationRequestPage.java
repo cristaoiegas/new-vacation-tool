@@ -30,6 +30,12 @@ public class VacationRequestPage extends PageObject {
 			element(save).waitUntilVisible();
 			save.click();
 	}
+	
+	public String getVacationId(){
+		String url = getDriver().getCurrentUrl();
+		String[] valueList = url.split("=");
+		return  valueList[valueList.length-1];
+	}
 }
 
 
