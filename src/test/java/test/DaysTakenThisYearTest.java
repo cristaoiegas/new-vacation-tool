@@ -14,10 +14,8 @@ import org.openqa.selenium.WebDriver;
 import com.requirements.Application;
 import com.requirements.tools.Constants;
 import com.steps.DepartmentMenuSteps;
-import com.steps.LogInSteps;
+import com.steps.LoginSteps;
 import com.steps.MyFreeDaysSteps;
-import com.steps.NewRequestSteps;
-import com.steps.NewVacationSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
@@ -30,7 +28,7 @@ public class DaysTakenThisYearTest {
     public Pages pages;
 
   @Steps
-  public LogInSteps logInSteps;
+  public LoginSteps loginSteps;
   
   @Steps
   public DepartmentMenuSteps enterDeparmentMenu;
@@ -41,8 +39,8 @@ public class DaysTakenThisYearTest {
    
     @Test
     public void testare() throws Exception {
-    	logInSteps.openHomePage();
-    	logInSteps.logIn(Constants.user_usual, Constants.password_usual);
+    	loginSteps.openHomePage();
+    	loginSteps.logIn(Constants.user_usual, Constants.password_usual);
     	enterDeparmentMenu.click_newVacationSection();
     	myFreeDaysSteps.click_myFreeDays();
     	myFreeDaysSteps.getDates();
