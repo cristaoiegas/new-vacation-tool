@@ -12,7 +12,8 @@ public class MyRequestSteps extends ScenarioSteps {
 	private static final long serialVersionUID = 1L;
 	NewVacationRequestPage vacationRequestPage;
 	NewVacationMenuPage newVacationMenuPage;
-MyRequestPage myRequestPage;
+	MyRequestPage myRequestPage;
+	
 	@Step
     public void enterStartDate(int month, int day, int year) throws Exception {
 
@@ -35,12 +36,13 @@ MyRequestPage myRequestPage;
 		return vacationRequestPage.getVacationId();
 	}
 	
-	public void verifyIfRequestIsInTheTableList(String vacationId){
-		myRequestPage.verifyIfRequestIsInTheTableList(vacationId);
+	public void clickOnARequestIsInTheTableList(String vacationId){
+		myRequestPage.clickOnARequestIsInTheTableList(vacationId);
 	}
 	@Step
-    public void click_Requests(){
+    public void click_Requests() throws Exception{
     	newVacationMenuPage.click_myRequests();
+    	Thread.sleep(4000);
     }
     @Step
     public void click_dropDown(String value) throws Exception {

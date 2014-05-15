@@ -77,6 +77,7 @@ public class NewVacationRequestPage extends PageObject {
 	public String getVacationId(){
 		String url = getDriver().getCurrentUrl();
 		String[] valueList = url.split("=");
+		System.out.println(valueList[valueList.length-1]);
 		return  valueList[valueList.length-1];
 	}
 	

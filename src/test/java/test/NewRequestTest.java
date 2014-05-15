@@ -48,20 +48,23 @@ public class NewRequestTest {
     @Test
     public void testare() throws Exception {
     	logInSteps.openHomePage();
-      	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
+      	logInSteps.logIn(Constants.user_usual, Constants.password_usual);
     	enterDeparmentMenu.click_newVacationSection();
     	newVacationrequest.newVacationReq();
     	
-    	newRequestSteps.enterStartDate(8, 28, 2014);
-    	newRequestSteps.enterEndDate(8, 29, 2014);
-    	newRequestSteps.clickComment();
-    	newRequestSteps.insertComment("blabla");
+    	newRequestSteps.enterStartDate(10, 28, 2014);
+    	newRequestSteps.enterEndDate(10, 29, 2014);
+//    	newRequestSteps.clickComment();
+//    	newRequestSteps.insertComment("blabla");
     	String vacationID = newRequestSteps.clickSave();
-    	myRequestSteps.verifyIfRequestIsInTheTableList(vacationID);
+    	myRequestSteps.click_Requests();
+    	myRequestSteps.click_dropDown("75");
+    	myRequestSteps.clickOnARequestIsInTheTableList(vacationID);
     	System.out.println(vacationID);
+
 //    	newRequestSteps.clickCancel();
-//    	newVacationrequest.click_myRequests();
-//    	dropDown.click_dropDown("75");
+    
+    	
 //    	
     	//logInSteps.logOut();
     } 
