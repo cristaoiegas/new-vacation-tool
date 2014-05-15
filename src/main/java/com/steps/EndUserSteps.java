@@ -10,8 +10,8 @@ import org.junit.Assert;
 import com.pages.DictionaryPage;
 
 public class EndUserSteps extends ScenarioSteps {
-
-    DictionaryPage dictionaryPage;
+	private static final long serialVersionUID = 1L;
+	DictionaryPage dictionaryPage;
 
     @Step
     public void enters(String keyword) {
@@ -49,7 +49,6 @@ public class EndUserSteps extends ScenarioSteps {
     @Step
     public void is_the_home_page() {
         dictionaryPage.open();
-        
         getDriver().manage().window().maximize();
     }
 

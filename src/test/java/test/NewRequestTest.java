@@ -14,10 +14,10 @@ import org.openqa.selenium.WebDriver;
 import com.requirements.Application;
 import com.requirements.tools.Constants;
 import com.steps.DepartmentMenuSteps;
-import com.steps.LogInSteps;
-import com.steps.NewRequestSteps;
-import com.steps.NewVacationSteps;
-import com.steps.MyRequestsSteps;
+import com.steps.LoginSteps;
+import com.steps.NewVacationRequestSteps;
+import com.steps.NewVacationMenuSteps;
+import com.steps.MyRequestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
@@ -30,20 +30,20 @@ public class NewRequestTest {
     public Pages pages;
 
     @Steps
-    public LogInSteps logInSteps;
+    public LoginSteps logInSteps;
   
     @Steps
     public DepartmentMenuSteps enterDeparmentMenu;
   
     @Steps
-    public NewVacationSteps newVacationrequest;
+    public NewVacationMenuSteps newVacationrequest;
     
     @Steps
-    public NewRequestSteps newRequestSteps;
+    public NewVacationRequestSteps newRequestSteps;
     
+     
     @Steps
-    public MyRequestsSteps dropDown;
-    
+    public MyRequestSteps myRequestSteps;
    
     @Test
     public void testare() throws Exception {
@@ -56,9 +56,10 @@ public class NewRequestTest {
     	newRequestSteps.enterEndDate(8, 29, 2014);
     	newRequestSteps.clickComment();
     	newRequestSteps.insertComment("blabla");
-//    	String vacationID = newRequestSteps.clickSave();
-//    	System.out.println(vacationID);
-    	newRequestSteps.clickCancel();
+    	String vacationID = newRequestSteps.clickSave();
+    	myRequestSteps.verifyIfRequestIsInTheTableList(vacationID);
+    	System.out.println(vacationID);
+//    	newRequestSteps.clickCancel();
 //    	newVacationrequest.click_myRequests();
 //    	dropDown.click_dropDown("75");
 //    	

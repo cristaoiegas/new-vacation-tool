@@ -14,10 +14,8 @@ import org.openqa.selenium.WebDriver;
 import com.requirements.Application;
 import com.requirements.tools.Constants;
 import com.steps.DepartmentMenuSteps;
-import com.steps.LogInSteps;
+import com.steps.LoginSteps;
 import com.steps.MyFreeDaysSteps;
-import com.steps.NewRequestSteps;
-import com.steps.NewVacationSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
@@ -30,7 +28,7 @@ public class MyEvozonBonusFreeDaysTest {
     public Pages pages;
 
   @Steps
-  public LogInSteps logInSteps;
+  public LoginSteps logInSteps;
   
   @Steps
   public DepartmentMenuSteps enterDeparmentMenu;

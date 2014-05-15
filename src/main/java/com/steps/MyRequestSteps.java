@@ -3,23 +3,21 @@ package com.steps;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
-import com.pages.CalendarPage;
+import com.pages.MyRequestPage;
 import com.pages.NewVacationMenuPage;
-import com.pages.VacationRequestPage;
-import com.pages.WithdrawPage;
+import com.pages.NewVacationRequestPage;
 
-public class myrequestSteps extends ScenarioSteps {
+public class MyRequestSteps extends ScenarioSteps {
 
-	VacationRequestPage vacationRequestPage;
-	NewVacationMenuPage myRequests;
-	CalendarPage calendarPage;
-	WithdrawPage dropDown;
-
+	private static final long serialVersionUID = 1L;
+	NewVacationRequestPage vacationRequestPage;
+	NewVacationMenuPage newVacationMenuPage;
+MyRequestPage myRequestPage;
 	@Step
     public void enterStartDate(int month, int day, int year) throws Exception {
 
 		vacationRequestPage.clickStartDate();
-		calendarPage.setDate(month, day, year);
+		vacationRequestPage.setDate(month, day, year);
     	
     	Thread.sleep(3000);
     }
@@ -27,7 +25,7 @@ public class myrequestSteps extends ScenarioSteps {
 	public void enterEndDate(int month, int day, int year) throws Exception {
 
 		vacationRequestPage.clickEndDate();
-		calendarPage.setDate(month, day, year);
+		vacationRequestPage.setDate(month, day, year);
     	
     	Thread.sleep(3000);
     }
@@ -37,12 +35,23 @@ public class myrequestSteps extends ScenarioSteps {
 		return vacationRequestPage.getVacationId();
 	}
 	
+	public void verifyIfRequestIsInTheTableList(String vacationId){
+		myRequestPage.verifyIfRequestIsInTheTableList(vacationId);
+	}
+	@Step
     public void click_Requests(){
-    	myRequests.click_myRequests();
+    	newVacationMenuPage.click_myRequests();
     }
     @Step
     public void click_dropDown(String value) throws Exception {
-    	dropDown.click_nrItems(value);   
+    	myRequestPage.click_nrItems(value);   
     	Thread.sleep(4000);
 	}
+
+    
+    @Step
+    public void click_myRequestsCheck() throws Exception{
+    	myRequestPage.clickHoliday();
+    	Thread.sleep(3000);
+    }
 }
