@@ -1,18 +1,14 @@
 package com.steps;
 
-import java.util.List;
-
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
-import org.junit.Assert;
-
-import com.pages.DictionaryPage;
-import com.pages.DeparmentMenuPage;
+import com.pages.DepartmentMenuPage;
 
 public class DepartmentMenuSteps extends ScenarioSteps {
 
-    DeparmentMenuPage newVacationPage;
+	private static final long serialVersionUID = 1L;
+	DepartmentMenuPage newVacationPage;
     
     @Step
     public void click_newVacationSection(){
