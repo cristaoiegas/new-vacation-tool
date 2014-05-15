@@ -35,4 +35,6 @@ public class MyFreeDaysSteps extends ScenarioSteps {
     public void freeDaysGivenInCurrentYear(){
     	assertThat(myFreeDaysPage.freeDaysGivenInCurrentYear()).isEqualTo(myFreeDaysPage.freeDGivenCurrentY());
     }
+    
+    
 }
