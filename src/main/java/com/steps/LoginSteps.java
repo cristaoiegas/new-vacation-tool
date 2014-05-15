@@ -3,11 +3,14 @@ package com.steps;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
-import com.pages.Login_outPage;
+import com.pages.DepartmentMenuPage;
+import com.pages.LoginPage;
 
-public class LogInSteps extends ScenarioSteps {
+public class LoginSteps extends ScenarioSteps {
 
-    Login_outPage loginPage;
+	private static final long serialVersionUID = 1L;
+	LoginPage loginPage;
+	DepartmentMenuPage departmentMenuPage;
 
     @Step
     public void logIn(String username, String password) {
@@ -19,7 +22,7 @@ public class LogInSteps extends ScenarioSteps {
     @Step
     public void logOut()
     {
-    	loginPage.click_SignOutButton();
+    	departmentMenuPage.click_SignOutButton();
     }
     
     @Step

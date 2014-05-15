@@ -14,8 +14,8 @@ import org.openqa.selenium.WebDriver;
 import com.requirements.Application;
 import com.requirements.tools.Constants;
 import com.steps.DepartmentMenuSteps;
-import com.steps.LogInSteps;
-import com.steps.NewVacationSteps;
+import com.steps.LoginSteps;
+import com.steps.NewVacationMenuSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
@@ -28,13 +28,13 @@ public class LogInTest {
     public Pages pages;
 
   @Steps
-  public LogInSteps logInSteps;
+  public LoginSteps logInSteps;
   
     @Steps
     public DepartmentMenuSteps enterDeparmentMenu;
   
     @Steps
-    public NewVacationSteps newVacationrequest;
+    public NewVacationMenuSteps newVacationrequest;
    
     @Test
     public void testare() throws InterruptedException {
