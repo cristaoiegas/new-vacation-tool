@@ -14,14 +14,13 @@ import org.openqa.selenium.WebDriver;
 import com.requirements.Application;
 import com.requirements.tools.Constants;
 import com.steps.DepartmentMenuSteps;
+import com.steps.InboxSteps;
 import com.steps.LoginSteps;
-import com.steps.MyRequestSteps;
-import com.steps.NewVacationMenuSteps;
-import com.steps.NewVacationRequestSteps;
+import com.steps.NewVacationSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class NewRequestTest {
+public class InboxTest {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -29,37 +28,34 @@ public class NewRequestTest {
     @ManagedPages(defaultUrl = "http://192.168.1.68:9080/login")
     public Pages pages;
 
-    @Steps
-    public LoginSteps logInSteps;
+  @Steps
+  public LoginSteps loginSteps;
   
     @Steps
     public DepartmentMenuSteps enterDeparmentMenu;
-  
-    @Steps
-    public NewVacationMenuSteps newVacationrequest;
     
     @Steps
-    public NewVacationRequestSteps newRequestSteps;
+    public NewVacationSteps inboxVariable;
     
-     
     @Steps
-    public MyRequestSteps myRequestSteps;
-   
+    public InboxSteps assigned;
+    
+    
     @Test
     public void testare() throws Exception {
-    	logInSteps.openHomePage();
-      	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
+    	loginSteps.openHomePage();
+    	loginSteps.logIn(Constants.user_dm, Constants.password_dm);
     	enterDeparmentMenu.click_newVacationSection();
-    	newVacationrequest.newVacationReq();
+    	inboxVariable.inboxClick();
+    	assigned.assigned_click();
+    	Thread.sleep(5000);
     	
-    	newRequestSteps.enterStartDate(8, 28, 2014);
-    	newRequestSteps.enterEndDate(8, 29, 2014);
-    	newRequestSteps.clickComment();
-    	newRequestSteps.insertComment("blabla");
-    	String vacationID = newRequestSteps.clickSave();
-    	myRequestSteps.verifyIfRequestIsInTheTableList(vacationID);
-    	System.out.println(vacationID);
-//    	newRequestSteps.clickCancel();
+    	
+    	//newVacationrequest.newVacationReq();;
+    	//newRequestSteps.enterStartDate(8, 28, 2013);
+    	//newRequestSteps.enterEndDate(9, 20, 2013);
+    	//String vacationID = newRequestSteps.clickSave();
+    	//System.out.println(vacationID);
 //    	newVacationrequest.click_myRequests();
 //    	dropDown.click_dropDown("75");
 //    	
