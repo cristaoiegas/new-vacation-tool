@@ -15,10 +15,8 @@ import com.requirements.Application;
 import com.requirements.tools.Constants;
 import com.steps.DepartmentMenuSteps;
 import com.steps.InboxSteps;
-import com.steps.LogInSteps;
-import com.steps.NewRequestSteps;
+import com.steps.LoginSteps;
 import com.steps.NewVacationSteps;
-import com.steps.MyRequestsSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
@@ -31,7 +29,7 @@ public class InboxTest {
     public Pages pages;
 
   @Steps
-  public LogInSteps logInSteps;
+  public LoginSteps loginSteps;
   
     @Steps
     public DepartmentMenuSteps enterDeparmentMenu;
@@ -45,8 +43,8 @@ public class InboxTest {
     
     @Test
     public void testare() throws Exception {
-    	logInSteps.openHomePage();
-    	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
+    	loginSteps.openHomePage();
+    	loginSteps.logIn(Constants.user_dm, Constants.password_dm);
     	enterDeparmentMenu.click_newVacationSection();
     	inboxVariable.inboxClick();
     	assigned.assigned_click();

@@ -15,9 +15,9 @@ import com.requirements.Application;
 import com.requirements.tools.Constants;
 import com.steps.DepartmentMenuSteps;
 import com.steps.LoginSteps;
-import com.steps.NewVacationRequestSteps;
-import com.steps.NewVacationMenuSteps;
 import com.steps.MyRequestSteps;
+import com.steps.NewVacationMenuSteps;
+import com.steps.NewVacationRequestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
