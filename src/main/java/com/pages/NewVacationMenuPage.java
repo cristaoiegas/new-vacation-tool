@@ -20,6 +20,9 @@ import net.thucydides.core.pages.WebElementFacade;
 	@FindBy(css= ".nav-list a[href*='free-days-history']")               
 	private WebElementFacade freeDaysHistory;
 	
+	@FindBy(css= ".icon-user")               
+	private WebElementFacade inbox;
+	
 	public void click_newVacationRequest(){
 		element(newVacationRequest).waitUntilVisible();
 		newVacationRequest.click();	
@@ -39,6 +42,11 @@ import net.thucydides.core.pages.WebElementFacade;
 		element(freeDaysHistory).waitUntilVisible();
 		freeDaysHistory.click();
 		
+	}
+	
+	public void click_Inbox(){
+		element(inbox).waitUntilVisible();
+		inbox.click();	
 	}
 	
 	

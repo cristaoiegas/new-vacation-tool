@@ -14,7 +14,5 @@ public class DepartmentMenuSteps extends ScenarioSteps {
     public void click_newVacationSection(){
     	newVacationPage.click_newVacationSection();
     	
-    }
- 
-    
+    }  
 }
