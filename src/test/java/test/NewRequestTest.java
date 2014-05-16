@@ -23,57 +23,59 @@ import com.steps.MyRequestSteps;
 @RunWith(ThucydidesRunner.class)
 public class NewRequestTest {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+	@Managed(uniqueSession = true)
+	public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl = "http://192.168.1.68:9080/login")
-    public Pages pages;
+	@ManagedPages(defaultUrl = "http://192.168.1.68:9080/login")
+	public Pages pages;
 
-    @Steps
-    public LoginSteps logInSteps;
-  
-    @Steps
-    public DepartmentMenuSteps enterDeparmentMenu;
-  
-    @Steps
-    public NewVacationMenuSteps newVacationrequest;
-    
-    @Steps
-    public NewVacationRequestSteps newRequestSteps;
-    
-     
-    @Steps
-    public MyRequestSteps myRequestSteps;
-   
-    @Test
-    public void testare() throws Exception {
-    	logInSteps.openHomePage();
-      	logInSteps.logIn(Constants.user_usual, Constants.password_usual);
-    	enterDeparmentMenu.click_newVacationSection();
-    	newVacationrequest.newVacationReq();
-    	
-    	newRequestSteps.enterStartDate(10, 02, 2014);
-    	newRequestSteps.enterEndDate(10, 05, 2014);
-    	newRequestSteps.clickComment();
-    	newRequestSteps.insertComment("blabla");
-    	String vacationID = newRequestSteps.clickSave();
-    	
-    	String vacationId = newRequestSteps.getVacationId();
-    	newRequestSteps.goToRequest(vacationId);
-    	newRequestSteps.withdrawRequest();
-    	
-    	
-    	
-//    	myRequestSteps.click_Requests();
-//    	myRequestSteps.click_dropDown("75");
-//    	myRequestSteps.clickOnARequestIsInTheTableList(vacationID);
-//    	System.out.println(vacationID);
+	@Steps
+	public LoginSteps logInSteps;
 
-//    	newRequestSteps.clickCancel();
-    
-    	
-//    	
-    	//logInSteps.logOut();
-    } 
+	@Steps
+	public DepartmentMenuSteps enterDeparmentMenu;
+
+	@Steps
+	public NewVacationMenuSteps newVacationrequest;
+
+	@Steps
+	public NewVacationRequestSteps newRequestSteps;
+
+
+	@Steps
+	public MyRequestSteps myRequestSteps;
+
+	@Test
+	public void testare() throws Exception {
+		logInSteps.openHomePage();
+		logInSteps.logIn(Constants.user_usual, Constants.password_usual);
+		enterDeparmentMenu.click_newVacationSection();
+		newVacationrequest.newVacationReq();
+		newRequestSteps.selectAVacation("Vacation without payment", "", "", "", "");
+		newRequestSteps.enterStartDate(10, 02, 2014);
+		newRequestSteps.enterEndDate(10, 05, 2014);
+		newRequestSteps.clickComment();
+		newRequestSteps.insertComment("blabla");
+
+		String vacationID = newRequestSteps.clickSave();
+
+		String vacationId = newRequestSteps.getVacationId();
+		newRequestSteps.goToRequest(vacationId);
+		
+		newRequestSteps.withdrawRequest();
+
+
+
+		//    	myRequestSteps.click_Requests();
+		//    	myRequestSteps.click_dropDown("75");
+		//    	myRequestSteps.clickOnARequestIsInTheTableList(vacationID);
+		//    	System.out.println(vacationID);
+
+		//    	newRequestSteps.clickCancel();
+
+
+		//    	
+		//logInSteps.logOut();
+	} 
 
 }
