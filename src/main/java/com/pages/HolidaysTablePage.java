@@ -1,111 +1,74 @@
-//package com.pages;
-//
-//import java.text.DateFormat;
-//import java.text.ParseException;
-//import java.text.SimpleDateFormat;
-//import java.util.Date;
-//
-//import org.joda.time.DateTime;
-//import org.joda.time.Years;
-//
-//import net.thucydides.core.annotations.DefaultUrl;
-//import net.thucydides.core.annotations.findby.FindBy;
-//import net.thucydides.core.pages.PageObject;
-//import net.thucydides.core.pages.WebElementFacade;
-//
-//@DefaultUrl("http://192.168.1.68:9080/web/qa-department")
-//public class HolidaysTablePage extends PageObject {
-//
-//	@FindBy(css = ".my-free-days-content table tbody tr:nth-child(1)")
-//	private WebElementFacade DateHiredElement;
-//
-//	@FindBy(css = ".my-free-days-content table tbody tr:nth-child(2) td:nth-child(2)")
-//	private WebElementFacade StartingBonusDaysNumber;
-//
-//	
-//
-//	public int getDates() throws ParseException {
-//
-//		String EvozonBonusDays = EvozonBonusDaysNumber.getText();
-//		int EvBonusD = Integer.parseInt(EvozonBonusDays);
-//
-//		SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
-//		Date dateCurrent = new Date();
-//		//System.out.println(currentDate.format(dateCurrent));
-//		String stringDateHired = DateHiredElement.getText();
-//		String dateHired = stringDateHired.replace("Date hired: ", "");
-//
-//		SimpleDateFormat dateHired1 = new SimpleDateFormat("dd/MM/yyyy");
-//		Date hiringDate;
-//		hiringDate = dateHired1.parse(dateHired);
-//
-//		SimpleDateFormat dateHired2 = new SimpleDateFormat("dd/MM/yyyy");
-//		//System.out.println(dateHired2.format(hiringDate));
-//
-//		DateTime dateCurrentDT = new DateTime(dateCurrent);
-//		DateTime hiringDateDT = new DateTime(hiringDate);
-//
-//		int yearsDiff = Years.yearsBetween(hiringDateDT, dateCurrentDT)
-//				.getYears();
-//		// System.out.println(EvBonusD);
-//		// System.out.println(yearsDiff);
-//		return yearsDiff;
-//
-//	}
-//
-//	public int EvozonBonusD() {
-//		String EvozonBonusDays = EvozonBonusDaysNumber.getText();
-//		int EvBonusD = Integer.parseInt(EvozonBonusDays);
-//		return EvBonusD;
-//	}
-//
-//	public int freeDaysGivenInCurrentYear() {
-//
-//		String EvozonBonusDays = EvozonBonusDaysNumber.getText();
-//		String StartingBonusDays = StartingBonusDaysNumber.getText();
-//		
-//
-//		int EvBonusD = Integer.parseInt(EvozonBonusDays);
-//		int StartBonusD = Integer.parseInt(StartingBonusDays);
-//		
-//
-//		int FreeDaysGivThisY = 21 + EvBonusD + StartBonusD;
-//	//	System.out.println(FreeDaysGivThisY);
-//        return  FreeDaysGivThisY;
-//	}
-//
-//	public int freeDGivenCurrentY(){
-//		String FreeDaysGivenInCurrentYear = FreeDaysGivenInCurrentYearNumber.getText();
-//		int FreeDGivenThisY = Integer.parseInt(FreeDaysGivenInCurrentYear);
-//		
-//		return FreeDGivenThisY;
-//	}
-//	
-//	public int availableFreeDays() {
-//
-//		String FreeDaysGivenInCurrentYear = FreeDaysGivenInCurrentYearNumber
-//				.getText();
-//		String ExtraDaysReceived = ExtraDaysReceivedNumber.getText();
-//		String VacationDaysTakenThisYear = VacationDaysTakenThisYearNumber
-//				.getText();
-//		
-//
-//		int FreeDGivenThisY = Integer.parseInt(FreeDaysGivenInCurrentYear);
-//		int ExtrDReceived = Integer.parseInt(ExtraDaysReceived);
-//		int VacDTakenThisY = Integer.parseInt(VacationDaysTakenThisYear);
-//		
-//
-//		int TotAvailFreeD = FreeDGivenThisY + ExtrDReceived - VacDTakenThisY;
-//
-//	//	System.out.println(TotAvailFreeD);
-//		return TotAvailFreeD;
-//
-//	}
-//
-//	public int TotalAvailableFreeDays() {
-//		
-//		String TotalAvailableFreeDays = TotalAvailableFreeDaysNumber.getText();
-//		int TotalAvailableFreeD = Integer.parseInt(TotalAvailableFreeDays);
-//		return TotalAvailableFreeD;
-//	}
-//}
+package com.pages;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.pages.PageObject;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+@DefaultUrl("http://192.168.1.68:9080/web/qa-department")
+public class HolidaysTablePage extends PageObject {
+
+public int getHolidayDaysTaken(String... terms) {
+		String noOfPagesContainer = getDriver()
+				.findElement(
+						By.cssSelector(".aui-paginator-current-page-report.aui-paginator-total"))
+				.getText().trim();
+		//System.out.println(noOfPagesContainer);
+		int noOfPages = tools.StringUtils.getAllIntegerNumbersFromString(
+				noOfPagesContainer).get(1);
+		System.out.println(noOfPages);
+		int total = 0;
+		for (int i = 0; i < noOfPages - 1; i++) {
+			List<WebElement> searchResults1 = getDriver().findElements(
+					By.cssSelector(".portlet-section-body.results-row"));
+			List<WebElement> searchResults2 = getDriver()
+					.findElements(
+							By.cssSelector(".portlet-section-alternate.results-row.alt"));
+			List<WebElement> searchResults = new ArrayList<WebElement>();
+			searchResults.addAll(searchResults1);
+			searchResults.addAll(searchResults2);
+
+			for (WebElement searchResult : searchResults) {
+				System.out.println(searchResult.getText());
+				if ($(searchResult).isCurrentlyVisible()) {
+					//$(searchResult).waitUntilVisible();
+					for (String term : terms) {
+						if (searchResult.getText().toLowerCase()
+								.contains(term.toLowerCase())) {
+							String daysNo = searchResult.findElement(
+									By.cssSelector("td:nth-child(3)"))
+									.getText();
+						int daysNomber = Integer.parseInt(daysNo);
+							//System.out.println(daysNomber);
+							total = total + daysNomber;
+                           // System.out.println(total);
+                           
+						}
+
+					}
+				}
+			}
+			if (i < noOfPages - 1) {
+				getDriver()
+						.findElement(
+								By.cssSelector(".aui-paginator-link.aui-paginator-next-link"))   
+						.click();
+				// waitFor(ExpectedConditions
+				// .textToBePresentInElement(
+				// By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"),
+				// String.format("(%d of %d)", i + 2, noOfPages)));
+				waitABit(2000);
+				
+			}
+		
+		}
+		//System.out.println(total);
+		return total;  
+		}
+
+}

@@ -20,7 +20,7 @@ public class NewVacationMenuSteps extends ScenarioSteps {
     }
     
     @Step
-    public void myFreeDays(){
+    public void clickmyFreeDays(){
     	newVacationMenuPage.click_myFreeDays();
     }
     

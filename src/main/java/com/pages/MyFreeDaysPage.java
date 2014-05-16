@@ -7,6 +7,7 @@ import java.util.Date;
 
 import org.joda.time.DateTime;
 import org.joda.time.Years;
+import org.junit.Assert;
 
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.findby.FindBy;
@@ -77,7 +78,13 @@ public class MyFreeDaysPage extends PageObject {
 		int EvBonusD = Integer.parseInt(EvozonBonusDays);
 		return EvBonusD;
 	}
-
+   
+	public int VacationDTakenThisYNr(){
+    	String VacationDaysTakenThisYearNr=VacationDaysTakenThisYearNumber.getText();
+    	int VacDTakenThisY = Integer.parseInt(VacationDaysTakenThisYearNr);
+    	return VacDTakenThisY;
+    }
+	
 	public int freeDaysGivenInCurrentYear() {
 
 		String EvozonBonusDays = EvozonBonusDaysNumber.getText();
