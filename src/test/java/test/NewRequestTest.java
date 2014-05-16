@@ -60,6 +60,7 @@ public class NewRequestTest {
     	
     	String vacationId = newRequestSteps.getVacationId();
     	newRequestSteps.goToRequest(vacationId);
+    	newRequestSteps.withdrawRequest();
     	
     	
     	

@@ -55,5 +55,11 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	 public void goToRequest(String vacationId){
 	  newVacationRequestPage.goToRequest(vacationId);
 	 }
+	 
+	 @Step
+	 public void withdrawRequest() throws Exception{ 
+		 newVacationRequestPage.clickWithdraw();
+		 Thread.sleep(3000);
+	 }
 	
 }

@@ -41,8 +41,8 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css = "div[aria-hidden='false'] .aui-icon.aui-icon-circle-triangle-l.aui-calendar-prev")
 	private WebElementFacade previousButton;
 	
-
-
+	@FindBy(id="_evovacation_WAR_EvoVacationportlet_withdrawnVacationRequest")
+	private WebElement withdraw;
 	
 	public void clickStartDate(){
 		element(startDate).waitUntilVisible();
@@ -81,21 +81,15 @@ public class NewVacationRequestPage extends PageObject {
 		  return urlList[urlList.length-1];
 		 }
 		 
-		 public void goToRequest(String VacationId){
+	public void goToRequest(String VacationId){
 		  getDriver().get("http://192.168.1.68:9080/web/lt/new-vacation?p_p_auth=nt6olSiz&p_p_id=evovacation_WAR_EvoVacationportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_evovacation_WAR_EvoVacationportlet_menuItem=my-requests&_evovacation_WAR_EvoVacationportlet_myRequestState=view-vacation&_evovacation_WAR_EvoVacationportlet_backMenuItem=my-requests&_evovacation_WAR_EvoVacationportlet_vacationId=" + VacationId);
-		 }
+		}
+
+	public void clickWithdraw(){
+		element(withdraw).waitUntilVisible();
+		withdraw.click();
+		}
 	
-	
-//	public String getVacationId(){
-//		String url = getDriver().getCurrentUrl();
-//		String[] valueList = url.split("=");
-//		System.out.println(valueList[valueList.length-1]);
-//		return  valueList[valueList.length-1];
-//	}
-//	
-//	public void verifyIfRequestIsInTheTableList(String vacationId){
-//		getDriver().findElement(By.cssSelector("a[href*=vacation="+vacationId+"']")).click();
-//	}
 	public void setDate(int month, int day, int year) throws ParseException {
 
 		Calendar calNew = Calendar.getInstance();
