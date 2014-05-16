@@ -46,4 +46,14 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 		return newVacationRequestPage.getVacationId();
 	}
 	
+	@Step
+	 public String getVacationId() {
+	  return newVacationRequestPage.getVacationId();
+	 }
+	 
+	 @Step
+	 public void goToRequest(String vacationId){
+	  newVacationRequestPage.goToRequest(vacationId);
+	 }
+	
 }

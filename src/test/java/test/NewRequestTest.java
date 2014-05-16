@@ -52,15 +52,21 @@ public class NewRequestTest {
     	enterDeparmentMenu.click_newVacationSection();
     	newVacationrequest.newVacationReq();
     	
-    	newRequestSteps.enterStartDate(10, 28, 2014);
-    	newRequestSteps.enterEndDate(10, 29, 2014);
+    	newRequestSteps.enterStartDate(10, 02, 2014);
+    	newRequestSteps.enterEndDate(10, 05, 2014);
 //    	newRequestSteps.clickComment();
 //    	newRequestSteps.insertComment("blabla");
     	String vacationID = newRequestSteps.clickSave();
-    	myRequestSteps.click_Requests();
-    	myRequestSteps.click_dropDown("75");
-    	myRequestSteps.clickOnARequestIsInTheTableList(vacationID);
-    	System.out.println(vacationID);
+    	
+    	String vacationId = newRequestSteps.getVacationId();
+    	newRequestSteps.goToRequest(vacationId);
+    	
+    	
+    	
+//    	myRequestSteps.click_Requests();
+//    	myRequestSteps.click_dropDown("75");
+//    	myRequestSteps.clickOnARequestIsInTheTableList(vacationID);
+//    	System.out.println(vacationID);
 
 //    	newRequestSteps.clickCancel();
     
