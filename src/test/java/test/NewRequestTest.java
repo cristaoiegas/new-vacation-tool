@@ -54,8 +54,8 @@ public class NewRequestTest {
     	
     	newRequestSteps.enterStartDate(10, 02, 2014);
     	newRequestSteps.enterEndDate(10, 05, 2014);
-//    	newRequestSteps.clickComment();
-//    	newRequestSteps.insertComment("blabla");
+    	newRequestSteps.clickComment();
+    	newRequestSteps.insertComment("blabla");
     	String vacationID = newRequestSteps.clickSave();
     	
     	String vacationId = newRequestSteps.getVacationId();

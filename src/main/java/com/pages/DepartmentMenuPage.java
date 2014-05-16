@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 @DefaultUrl("http://192.168.1.68:9080/web/qa-department")
 public class DepartmentMenuPage extends PageObject {
 
-	@FindBy(css="a[href*=new-vacation]")               
+	@FindBy(css="a[href*=new-vacation1]")               
 	private WebElementFacade newVacationSection;
 	
 

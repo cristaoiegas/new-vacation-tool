@@ -32,6 +32,8 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css=".aui-button-input aui-button-input-cancel")
 	private WebElement cancel;
 	
+	
+	
 	@FindBy(css = "div[aria-hidden='false'] .aui-calendar-title")
 	private WebElementFacade calendarTitle;
 
