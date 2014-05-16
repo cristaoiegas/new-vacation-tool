@@ -41,7 +41,7 @@ public class MyRequestPage extends PageObject {
 	}
 	
 	public void clickOnARequestIsInTheTableList(String vacationId){
-		getDriver().findElement(By.cssSelector("a[href*="+vacationId+"']")).click();
+		getDriver().findElement(By.cssSelector("a[href*vacationId=]"+vacationId)).click();
 		
 	}
 	
