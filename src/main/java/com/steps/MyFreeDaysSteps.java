@@ -40,6 +40,7 @@ public class MyFreeDaysSteps extends ScenarioSteps {
     public void freeDaysGivenInCurrentYear(){
     	assertThat(myFreeDaysPage.freeDaysGivenInCurrentYear()).isEqualTo(myFreeDaysPage.freeDGivenCurrentY());
     }
+
     
     @Step 
     public int checkTable(String... terms){
@@ -53,4 +54,5 @@ public class MyFreeDaysSteps extends ScenarioSteps {
     	//Assert.assertTrue("The days are not equal", VacDTakenThisY==tot);
     	//Assert.assertEquals(VacDTakenThisY,tot);
     }
+
 }

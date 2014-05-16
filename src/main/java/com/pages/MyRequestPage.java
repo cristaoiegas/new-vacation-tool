@@ -40,8 +40,9 @@ public class MyRequestPage extends PageObject {
 			save.click();
 	}
 	
-	public void verifyIfRequestIsInTheTableList(String vacationId){
-		getDriver().findElement(By.cssSelector("a[href*=vacation="+vacationId+"']")).click();
+	public void clickOnARequestIsInTheTableList(String vacationId){
+		getDriver().findElement(By.cssSelector("a[href*vacationId=]"+vacationId)).click();
+		
 	}
 	
 }

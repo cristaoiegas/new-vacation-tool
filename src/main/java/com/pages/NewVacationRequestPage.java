@@ -32,6 +32,12 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css=".aui-button-input aui-button-input-cancel")
 	private WebElement cancel;
 	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_duration input" )
+	private WebElement duration;
+	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_institution input")
+	private WebElement institution;
+	
 	@FindBy(css = "div[aria-hidden='false'] .aui-calendar-title")
 	private WebElementFacade calendarTitle;
 
@@ -40,7 +46,12 @@ public class NewVacationRequestPage extends PageObject {
 
 	@FindBy(css = "div[aria-hidden='false'] .aui-icon.aui-icon-circle-triangle-l.aui-calendar-prev")
 	private WebElementFacade previousButton;
-
+	
+	@FindBy(id="_evovacation_WAR_EvoVacationportlet_withdrawnVacationRequest")
+	private WebElement withdraw;
+	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_specialReason")
+    private WebElementFacade ChooseASpecialVacation;
 	
 	public void clickStartDate(){
 		element(startDate).waitUntilVisible();
@@ -74,15 +85,80 @@ public class NewVacationRequestPage extends PageObject {
 			cancel.click();
 	}
 	
-	public String getVacationId(){
-		String url = getDriver().getCurrentUrl();
-		String[] valueList = url.split("=");
-		return  valueList[valueList.length-1];
+	public String getVacationId() {
+		  String[] urlList = getDriver().getCurrentUrl().split("=");
+		  return urlList[urlList.length-1];
+		 }
+		 
+	public void goToRequest(String VacationId){
+		  getDriver().get("http://192.168.1.68:9080/web/lt/new-vacation?p_p_auth=nt6olSiz&p_p_id=evovacation_WAR_EvoVacationportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_evovacation_WAR_EvoVacationportlet_menuItem=my-requests&_evovacation_WAR_EvoVacationportlet_myRequestState=view-vacation&_evovacation_WAR_EvoVacationportlet_backMenuItem=my-requests&_evovacation_WAR_EvoVacationportlet_vacationId=" + VacationId);
+		}
+
+	public void clickWithdraw(){
+		element(withdraw).waitUntilVisible();
+		withdraw.click();
+		}
+	
+	public void insertDuration(String keyword){
+		element(duration).waitUntilVisible();
+		duration.sendKeys(keyword);
 	}
 	
-	public void verifyIfRequestIsInTheTableList(String vacationId){
-		getDriver().findElement(By.cssSelector("a[href*=vacation="+vacationId+"']")).click();
+	public void insertInstitution(String keyword){
+		element(institution).waitUntilVisible();
+		institution.sendKeys(keyword);
 	}
+
+	 public void selectAVacationType(String vacationType, String keywordDuration,
+			   String keywordInstitution, String value, String com) {
+			  String var;
+			  switch (vacationType) {
+			  case "Holiday": {
+			   var = "CO";
+			   WebElement element = getDriver()
+			     .findElement(
+			       By.cssSelector(String
+			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
+			           + var)));
+			   element.click();
+			   break;
+			  }
+			  case "Vacation without payment": {
+			   var = "CF";
+			   WebElement element = getDriver()
+			     .findElement(
+			       By.cssSelector(String
+			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
+			           + var)));
+			    element.click();
+			  insertDuration(keywordDuration);
+			  insertInstitution(keywordInstitution);
+			   break;
+			  }
+			  case "Special vacation": {
+			   var = "CS";
+			   WebElement element = getDriver()
+			     .findElement(
+			       By.cssSelector(String
+			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
+			           + var)));
+			    element.click();
+			    
+			   break;
+			  }
+			  case "Sick leave": 
+			   var = "CM";
+			   WebElement element = getDriver()
+			     .findElement(
+			       By.cssSelector(String
+			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
+			           + var)));
+			    element.click();
+			   break;
+			  }
+			 }
+			  
+	
 	public void setDate(int month, int day, int year) throws ParseException {
 
 		Calendar calNew = Calendar.getInstance();
