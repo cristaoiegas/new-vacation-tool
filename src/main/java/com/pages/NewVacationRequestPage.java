@@ -53,6 +53,9 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_specialReason")
     private WebElementFacade ChooseASpecialVacation;
 	
+	@FindBy(css = "select[name='specialReason']")
+	private WebElementFacade specialReason; 
+	
 	public void clickStartDate(){
 		element(startDate).waitUntilVisible();
 		startDate.click();	
@@ -108,9 +111,13 @@ public class NewVacationRequestPage extends PageObject {
 		element(institution).waitUntilVisible();
 		institution.sendKeys(keyword);
 	}
+	
+	public void insertSpecialReason(String value){
+		specialReason.selectByVisibleText(value);
+	}
 
 	 public void selectAVacationType(String vacationType, String keywordDuration,
-			   String keywordInstitution, String value, String com) {
+			   String keywordInstitution, String value) {
 			  String var;
 			  switch (vacationType) {
 			  case "Holiday": {
@@ -143,7 +150,7 @@ public class NewVacationRequestPage extends PageObject {
 			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
 			           + var)));
 			    element.click();
-			    
+			    insertSpecialReason(value);
 			   break;
 			  }
 			  case "Sick leave": 

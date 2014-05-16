@@ -40,9 +40,9 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	
 	@Step
 	 public void selectAVacation(String vacationType, String keywordDuration,
-	   String keywordInstitution, String value, String com) {
+	   String keywordInstitution, String value) {
 	  newVacationRequestPage.selectAVacationType(vacationType, keywordDuration,
-	    keywordInstitution, value, com);
+	    keywordInstitution, value);
 	 }
 	
 

@@ -51,9 +51,9 @@ public class NewRequestTest {
 		logInSteps.logIn(Constants.user_usual, Constants.password_usual);
 		enterDeparmentMenu.click_newVacationSection();
 		newVacationrequest.newVacationReq();
-		newRequestSteps.selectAVacation("Vacation without payment", "", "", "", "");
-		newRequestSteps.enterStartDate(10, 02, 2014);
-		newRequestSteps.enterEndDate(10, 05, 2014);
+		newRequestSteps.selectAVacation("Sick leave", "", "", "");
+		newRequestSteps.enterStartDate(10, 7, 2014);
+		newRequestSteps.enterEndDate(10, 9, 2014);
 		newRequestSteps.clickComment();
 		newRequestSteps.insertComment("blabla");
 
