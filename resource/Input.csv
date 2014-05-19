@@ -1,0 +1,8 @@
+vacationType,keywordDuration,keywordInstitution,startMonth,startDay,startYear,endMonth,endDay,endYear,typeOfSpecialVacation,com
+"Holiday","","",11,11,2014,11.12,2014,"","a"
+"Vacation without payment","3 zile","scoala",01,12,2014,01,14,2014,"","as"
+"Special vacation","","",11,13,2014,11,14,2014,"Marriage","ieei"
+"Special vacation","","",12,16,2014,12,17,2014,"Child birth","it's a girl"
+"Special vacation","",""12,18,2014,12,19,2014,"Funeral",":("
+"Special vacation","","",12,11,2014,12,12,2014,"Other","interviu"
+"Sick leave","","",12,10,2014,12,11,2014,"","a"
