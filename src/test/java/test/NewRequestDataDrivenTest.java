@@ -93,6 +93,7 @@ public class NewRequestDataDrivenTest {
 	 newVacationrequest.newVacationReq();
 	 newRequestSteps.makeANewVacation(vacationType, keywordDuration,
 	 keywordInstitution, startMonth, startDay, startYear, endMonth,	 endDay, endYear, typeOfSpecialVacation,com);
+	 String vacationID = newRequestSteps.clickSave();
 	 newRequestSteps.checkErrorMessage("Your request failed to complete.");
 	  
 	 }
@@ -104,8 +105,11 @@ public class NewRequestDataDrivenTest {
 		newVacationrequest.newVacationReq();
 	 	newRequestSteps.makeANewVacation(vacationType, keywordDuration,
 	    keywordInstitution,  startMonth, startDay, startYear, endMonth, endDay, endYear, typeOfSpecialVacation, com);
+	 	String vacationID = newRequestSteps.clickSave();
 	    newRequestSteps.checkSuccessMessage("Your request completed successfully.");
-	 
+	    String vacationId = newRequestSteps.getVacationId();
+//		newRequestSteps.goToRequest(vacationId);
+//		newRequestSteps.withdrawRequest();
 	}
 	
 

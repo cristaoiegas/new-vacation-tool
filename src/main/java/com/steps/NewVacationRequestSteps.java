@@ -93,7 +93,7 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	  selectAVacation(vacationType, keywordDuration, keywordInstitution, typeOfSpecialVacation, com);
 	  enterStartDate(startMonth, startDay, startYear);
 	  enterEndDate(endMonth, endDay, endYear);
-	  String Id=clickSave();
+	 
 		  }
 
 }
