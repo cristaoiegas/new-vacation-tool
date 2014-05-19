@@ -88,8 +88,7 @@ public class NewRequestDataDrivenTest {
 	 @Test
 	 public void failedRequestDataDriven() throws Exception {
 	  
-//	 logInSteps.openHomePage();
-//	 logInSteps.logIn(Constants.user_usual, Constants.password_usual);
+
 	 enterDeparmentMenu.click_newVacationSection();
 	 newVacationrequest.newVacationReq();
 	 newRequestSteps.makeANewVacation(vacationType, keywordDuration,

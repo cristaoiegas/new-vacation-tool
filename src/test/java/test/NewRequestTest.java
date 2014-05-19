@@ -52,18 +52,18 @@ public class NewRequestTest {
 		enterDeparmentMenu.click_newVacationSection();
 		newVacationrequest.newVacationReq();
 		newRequestSteps.selectAVacation("holiday", "", "", "","a");
-		newRequestSteps.enterStartDate(04, 24, 2014);
-		newRequestSteps.enterEndDate(04, 25, 2014);
+		newRequestSteps.enterStartDate(04, 28, 2014);
+		newRequestSteps.enterEndDate(04, 29, 2014);
 		
 		String vacationID = newRequestSteps.clickSave();
 		
 	
 		newRequestSteps.checkSuccessMessage("Your request completed successfully.");
-//		String vacationId = newRequestSteps.getVacationId();
-//		newRequestSteps.goToRequest(vacationId);
+		String vacationId = newRequestSteps.getVacationId();
+		newRequestSteps.goToRequest(vacationId);
 		
 		
-//		newRequestSteps.withdrawRequest();
+		newRequestSteps.withdrawRequest();
 
 
 
