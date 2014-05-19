@@ -11,11 +11,11 @@ import net.thucydides.core.pages.WebElementFacade;
 	@FindBy(css= ".nav-list a[href*='new-request']")               
 	private WebElementFacade newVacationRequest;
 	
-//	@FindBy(css= ".nav-list a[href*='my-request']")               
-//	private WebElementFacade myRequests;
-	
-	@FindBy(css= ".carousel-slider.\\span3 ul li:nth-child(3) a")               
+	@FindBy(css= ".nav-list a[href*='my-requests']")               
 	private WebElementFacade myRequests;
+	
+//	@FindBy(css= ".carousel-slider.\\span3 ul li:nth-child(3) a")               
+//	private WebElementFacade myRequests;
 	
 	@FindBy(css= ".nav-list a[href*='my-free-days']")               
 	private WebElementFacade myFreeDays;

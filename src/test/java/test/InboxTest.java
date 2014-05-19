@@ -15,6 +15,7 @@ import com.pages.NewVacationMenuPage;
 import com.requirements.Application;
 import com.requirements.tools.Constants;
 import com.steps.DepartmentMenuSteps;
+import com.steps.InboxSteps;
 import com.steps.LoginSteps;
 import com.steps.MyRequestSteps;
 import com.steps.NewVacationMenuSteps;
@@ -22,7 +23,7 @@ import com.steps.NewVacationRequestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class NewRequestTest {
+public class InboxTest {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -32,48 +33,36 @@ public class NewRequestTest {
 
     @Steps
     public LoginSteps logInSteps;
-  
     @Steps
-    public DepartmentMenuSteps enterDeparmentMenu;
-  
+    public DepartmentMenuSteps enterDeparmentMenu; 
     @Steps
-    public NewVacationMenuSteps newVacationMenuSteps;
+    public NewVacationMenuSteps newVacationMenuSteps;  
+    @Steps
+    public MyRequestSteps myRequestSteps;
+    @Steps
+    public InboxSteps inboxSteps;
     
     @Steps
     public NewVacationRequestSteps newRequestSteps;
     
-    @Steps
-    public NewVacationMenuPage newVacationMenuPage;
-     
-    @Steps
-    public MyRequestSteps myRequestSteps;
     
     @Test
     public void testare() throws Exception {
     	logInSteps.openHomePage();
-      	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
+      	logInSteps.logIn(Constants.user_usual1, Constants.password_usual1);
     	enterDeparmentMenu.click_newVacationSection();
     	newVacationMenuSteps.newVacationReq();
-    	newRequestSteps.enterStartDate(19, 05, 2014);
-    	newRequestSteps.enterEndDate(20, 05, 2014);
-    	newRequestSteps.clickSave();
-  
-    	String vacationId = newRequestSteps.getVacationId();
-    	System.out.println(vacationId);
-    	newVacationMenuSteps.clickMyRequests();
-    	myRequestSteps.click_dropDown("75");
-    	myRequestSteps.clickOnARequestIsInTheTableList(vacationId);
-    	
-//newRequestSteps.clickComment();
-//newRequestSteps.insertComment("blabla");
-//System.out.println(vacationID);
-//String vacationId = newRequestSteps.getVacationId();
-//newRequestSteps.goToRequest(vacationId);
-//newRequestSteps.withdrawRequest(); 	
-//myRequestSteps.click_Requests();  
-//myRequestSteps.clickOnARequestIsInTheTableList(vacationID);
-//System.out.println(vacationID);
-// newRequestSteps.clickCancel();
-//logInSteps.logOut();
-    } 
+    	newRequestSteps.enterStartDate(5, 19, 2014);
+    	newRequestSteps.enterEndDate(5, 19, 2014);
+    	String varID = newRequestSteps.clickSave();
+     	
+     	logInSteps.logOut();
+     	logInSteps.openHomePage();
+      	logInSteps.logIn(Constants.user_dm, Constants.password_dm);
+      	enterDeparmentMenu.click_newVacationSection();
+    	newVacationMenuSteps.clickInbox();
+    	inboxSteps.assignedToOthers();
+    	inboxSteps.selectElement(varID);
+    	inboxSteps.approveButton();   	
+   } 
 }

@@ -51,15 +51,15 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	  return newVacationRequestPage.getVacationId();
 	 }
 	 
-	 @Step
-	 public void goToRequest(String vacationId){
-	  newVacationRequestPage.goToRequest(vacationId);
-	 }
+//	 @Step
+//	 public void goToRequest(String vacationId){
+//	  newVacationRequestPage.goToRequest(vacationId);
+//	 }
 	 
 	 @Step
 	 public void withdrawRequest() throws Exception{ 
 		 newVacationRequestPage.clickWithdraw();
-		 Thread.sleep(3000);
+		 //Thread.sleep(3000);
 	 }
 	
 }

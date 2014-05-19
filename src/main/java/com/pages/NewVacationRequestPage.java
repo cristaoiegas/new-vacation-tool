@@ -83,10 +83,10 @@ public class NewVacationRequestPage extends PageObject {
 		  return urlList[urlList.length-1];
 		 }
 		 
-	public void goToRequest(String VacationId){
-		  getDriver().get("http://192.168.1.68:9080/web/lt/new-vacation?p_p_auth=nt6olSiz&p_p_id=evovacation_WAR_EvoVacationportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_evovacation_WAR_EvoVacationportlet_menuItem=my-requests&_evovacation_WAR_EvoVacationportlet_myRequestState=view-vacation&_evovacation_WAR_EvoVacationportlet_backMenuItem=my-requests&_evovacation_WAR_EvoVacationportlet_vacationId=" + VacationId);
-		}
-
+//	public void goToRequest(String VacationId){
+//		getDriver().findElement(By.cssSelector("a[href*=vacationId]"+VacationId)).click();
+//		}
+	
 	public void clickWithdraw(){
 		element(withdraw).waitUntilVisible();
 		withdraw.click();
