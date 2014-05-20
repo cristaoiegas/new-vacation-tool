@@ -24,7 +24,7 @@ import com.steps.MyRequestSteps;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 
 @Story(Application.Search.SearchByKeyword.class)
-@RunWith(ThucydidesRunner.class)
+@RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resource/Input.csv")
 
 public class NewRequestDataDrivenTest {
@@ -103,7 +103,7 @@ public class NewRequestDataDrivenTest {
 		logInSteps.logIn(Constants.user_usual, Constants.password_usual);
 		enterDeparmentMenu.click_newVacationSection();
 		newVacationrequest.newVacationReq();
-	 	newRequestSteps.makeANewVacation(vacationType, keywordDuration,
+	 	String vacationId = newRequestSteps.makeANewVacation(vacationType, keywordDuration,
 	    keywordInstitution, typeOfSpecialVacation, com,  startMonth, startDay, startYear, endMonth, endDay, endYear);
 	    newRequestSteps.checkSuccessMessage("Your request completed successfully.");
 //	    String vacationId = newRequestSteps.getVacationId();
