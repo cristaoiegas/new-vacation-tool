@@ -28,7 +28,7 @@ public class NewVacationRequestPage extends PageObject {
 	private WebElement save;
 
 	@FindBy(id="_evovacation_WAR_EvoVacationportlet_commentContent")
-	private WebElement commentContent;
+	private WebElementFacade commentContent;
 	
 	@FindBy(css=".aui-button-input aui-button-input-cancel")
 	private WebElement cancel;
@@ -72,12 +72,9 @@ public class NewVacationRequestPage extends PageObject {
 		comment.click();
 	}
 	
-
-	public void insertComment(String keyword) {
-		element(commentContent).waitUntilVisible();
-		commentContent.sendKeys(keyword); 
-	}
-	
+	 public void insertComment(String com) {
+		  commentContent.type(com);
+		 }
 	
 	public void clickSave(){
 			element(save).waitUntilVisible();
@@ -143,6 +140,8 @@ public class NewVacationRequestPage extends PageObject {
 			    element.click();
 			  insertDuration(keywordDuration);
 			  insertInstitution(keywordInstitution);
+			  clickComment();
+			  insertComment(com);
 			   break;
 			  }
 			  case "Special vacation": {

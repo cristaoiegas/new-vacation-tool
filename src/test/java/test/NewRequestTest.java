@@ -51,7 +51,7 @@ public class NewRequestTest {
 		logInSteps.logIn(Constants.user_usual, Constants.password_usual);
 		enterDeparmentMenu.click_newVacationSection();
 		newVacationrequest.newVacationReq();
-		newRequestSteps.selectAVacation("holiday", "", "", "","a");
+		newRequestSteps.selectAVacation("Vacation without payment", "2 zile", "abc", "","a");
 		newRequestSteps.enterStartDate(04, 28, 2014);
 		newRequestSteps.enterEndDate(04, 29, 2014);
 		
