@@ -1,6 +1,7 @@
 package com.steps;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.steps.ScenarioSteps;
 
 import com.pages.NewVacationRequestPage;
@@ -29,6 +30,7 @@ public class NewVacationRequestSteps extends ScenarioSteps {
     	Thread.sleep(3000);
     }
 	
+	@Step
 	public void clickComment(){
 		newVacationRequestPage.clickComment();
 	}
@@ -40,23 +42,23 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	
 	@Step
 	 public void selectAVacation(String vacationType, String keywordDuration,
-	   String keywordInstitution, String value) {
+	   String keywordInstitution, String value, String com) {
 	  newVacationRequestPage.selectAVacationType(vacationType, keywordDuration,
-	    keywordInstitution, value);
+	    keywordInstitution, value, com);
 	 }
 	
-
+	@Step
 	public void clickCancel(){
 		newVacationRequestPage.clickCancel();
 	}
 	
-	
+	@Step
 	public String clickSave() throws Exception {
 		newVacationRequestPage.clickSave();
 		return newVacationRequestPage.getVacationId();
 	}
 	
-	
+	@Step
 	 public String getVacationId() {
 	  return newVacationRequestPage.getVacationId();
 	 }
@@ -72,4 +74,28 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 		 //Thread.sleep(3000);
 	 }
 	
+	 @Step
+	 public void checkErrorMessage(String message){
+		 newVacationRequestPage.checkErrorMessage(message);
+	 }
+	 
+	 @Step
+	 public void checkSuccessMessage(String message){
+		 newVacationRequestPage.checkSuccessMessage(message);
+	 }
+	 
+	 @StepGroup
+	 public void makeANewVacation(String vacationType, String keywordDuration,
+	   String keywordInstitution, int startMonth, int startDay,
+	   int startYear, int endMonth, int endDay, int endYear,
+	    String typeOfSpecialVacation, String com) throws Exception {
+	  
+	  selectAVacation(vacationType, keywordDuration, keywordInstitution, typeOfSpecialVacation, com);
+	  enterStartDate(startMonth, startDay, startYear);
+	  enterEndDate(endMonth, endDay, endYear);
+	  String vacationID=clickSave();
+		  }
+
 }
+
+

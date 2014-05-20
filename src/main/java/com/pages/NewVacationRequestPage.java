@@ -9,6 +9,7 @@ import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -27,7 +28,7 @@ public class NewVacationRequestPage extends PageObject {
 	private WebElement save;
 
 	@FindBy(id="_evovacation_WAR_EvoVacationportlet_commentContent")
-	private WebElement commentContent;
+	private WebElementFacade commentContent;
 	
 	@FindBy(css=".aui-button-input aui-button-input-cancel")
 	private WebElement cancel;
@@ -71,12 +72,9 @@ public class NewVacationRequestPage extends PageObject {
 		comment.click();
 	}
 	
-
-	public void insertComment(String keyword) {
-		element(commentContent).waitUntilVisible();
-		commentContent.sendKeys(keyword); 
-	}
-	
+	 public void insertComment(String com) {
+		  commentContent.type(com);
+		 }
 	
 	public void clickSave(){
 			element(save).waitUntilVisible();
@@ -117,7 +115,7 @@ public class NewVacationRequestPage extends PageObject {
 	}
 
 	 public void selectAVacationType(String vacationType, String keywordDuration,
-			   String keywordInstitution, String value) {
+			   String keywordInstitution, String value, String com) {
 			  String var;
 			  switch (vacationType) {
 			  case "Holiday": {
@@ -128,6 +126,8 @@ public class NewVacationRequestPage extends PageObject {
 			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
 			           + var)));
 			   element.click();
+			   clickComment();
+			   insertComment(com);
 			   break;
 			  }
 			  case "Vacation without payment": {
@@ -140,6 +140,8 @@ public class NewVacationRequestPage extends PageObject {
 			    element.click();
 			  insertDuration(keywordDuration);
 			  insertInstitution(keywordInstitution);
+			  clickComment();
+			  insertComment(com);
 			   break;
 			  }
 			  case "Special vacation": {
@@ -151,6 +153,8 @@ public class NewVacationRequestPage extends PageObject {
 			           + var)));
 			    element.click();
 			    insertSpecialReason(value);
+			    clickComment();
+			    insertComment(com);
 			   break;
 			  }
 			  case "Sick leave": 
@@ -161,6 +165,8 @@ public class NewVacationRequestPage extends PageObject {
 			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
 			           + var)));
 			    element.click();
+			    clickComment();
+			    insertComment(com);
 			   break;
 			  }
 			 }
@@ -200,7 +206,30 @@ public class NewVacationRequestPage extends PageObject {
 
 	}
 	
+	 public void checkErrorMessage(String message) {
+		    String elementText = getDriver()
+		      .findElement(
+		        By.cssSelector(".portlet-body >.portlet-msg-error"))
+		        .getText().trim();
+		    if (!elementText.toLowerCase().contains(message.toLowerCase())) {
+		     Assert.fail(String.format("Thef containerf does not contain message!",
+		       message));
+		     System.out.println(message);
+		    }
+		   }
 	
+	 
+	 public void checkSuccessMessage(String message) {
+		    String elementText = getDriver()
+		      .findElement(
+		        By.cssSelector(".portlet-msg-success"))
+		        .getText().trim();
+		    if (!elementText.toLowerCase().contains(message.toLowerCase())) {
+		     Assert.fail(String.format("Thef containerf does not contain message!",
+		       message));
+		     System.out.println(message);
+		    }
+		   }
 }
 
 
