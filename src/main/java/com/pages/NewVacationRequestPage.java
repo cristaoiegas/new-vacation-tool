@@ -15,30 +15,30 @@ import org.openqa.selenium.WebElement;
 
 public class NewVacationRequestPage extends PageObject {
 
-	@FindBy(name="startDate")               
+	@FindBy(name = "startDate")
 	private WebElement startDate;
-	
-	@FindBy(name="endDate")               
+
+	@FindBy(name = "endDate")
 	private WebElement endDate;
-	
-	@FindBy(id="_evovacation_WAR_EvoVacationportlet_newVacationComment")
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_newVacationComment")
 	private WebElement comment;
-	
-	@FindBy(css=".aui-button.aui-button-submit >.aui-button-content input")               
+
+	@FindBy(css = ".aui-button.aui-button-submit >.aui-button-content input")
 	private WebElement save;
 
-	@FindBy(id="_evovacation_WAR_EvoVacationportlet_commentContent")
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_commentContent")
 	private WebElementFacade commentContent;
-	
-	@FindBy(css=".aui-button-input aui-button-input-cancel")
+
+	@FindBy(css = ".aui-button-input aui-button-input-cancel")
 	private WebElement cancel;
-	
-	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_duration input" )
+
+	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_duration input")
 	private WebElement duration;
-	
-	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_institution input")
+
+	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_institution input")
 	private WebElement institution;
-	
+
 	@FindBy(css = "div[aria-hidden='false'] .aui-calendar-title")
 	private WebElementFacade calendarTitle;
 
@@ -47,131 +47,133 @@ public class NewVacationRequestPage extends PageObject {
 
 	@FindBy(css = "div[aria-hidden='false'] .aui-icon.aui-icon-circle-triangle-l.aui-calendar-prev")
 	private WebElementFacade previousButton;
-	
-	@FindBy(id="_evovacation_WAR_EvoVacationportlet_withdrawnVacationRequest")
+
+	@FindBy(id = "_evovacation_WAR_EvoVacationportlet_withdrawnVacationRequest")
 	private WebElement withdraw;
-	
-	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_specialReason")
-    private WebElementFacade ChooseASpecialVacation;
-	
+
+	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_specialReason")
+	private WebElementFacade ChooseASpecialVacation;
+
 	@FindBy(css = "select[name='specialReason']")
-	private WebElementFacade specialReason; 
-	
-	public void clickStartDate(){
+	private WebElementFacade specialReason;
+
+	public void clickStartDate() {
 		element(startDate).waitUntilVisible();
-		startDate.click();	
+		startDate.click();
 	}
-	
-	public void clickEndDate(){
+
+	public void clickEndDate() {
 		element(endDate).waitUntilVisible();
-		endDate.click();	
+		endDate.click();
 	}
-	
-	public void clickComment(){
+
+	public void clickComment() {
 		element(comment).waitUntilVisible();
 		comment.click();
 	}
-	
-	 public void insertComment(String com) {
-		  commentContent.type(com);
-		 }
-	
-	public void clickSave(){
-			element(save).waitUntilVisible();
-			save.click();
-	}
-	
-	public void clickCancel(){
-			element(cancel).waitUntilVisible();
-			cancel.click();
-	}
-	
-	public String getVacationId() {
-		  String[] urlList = getDriver().getCurrentUrl().split("=");
-		  return urlList[urlList.length-1];
-		 }
-		 
-	public void goToRequest(String VacationId){
-		  getDriver().get("http://192.168.1.68:9080/web/lt/new-vacation?p_p_auth=nt6olSiz&p_p_id=evovacation_WAR_EvoVacationportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_evovacation_WAR_EvoVacationportlet_menuItem=my-requests&_evovacation_WAR_EvoVacationportlet_myRequestState=view-vacation&_evovacation_WAR_EvoVacationportlet_backMenuItem=my-requests&_evovacation_WAR_EvoVacationportlet_vacationId=" + VacationId);
-		}
 
-	public void clickWithdraw(){
+	public void insertComment(String com) {
+		commentContent.type(com);
+	}
+
+	public void clickSave() {
+		element(save).waitUntilVisible();
+		save.click();
+	}
+
+	public void clickCancel() {
+		element(cancel).waitUntilVisible();
+		cancel.click();
+	}
+
+	public String getVacationId() {
+		String[] urlList = getDriver().getCurrentUrl().split("=");
+		return urlList[urlList.length - 1];
+	}
+
+	public void goToRequest(String VacationId) {
+		getDriver()
+				.get("http://192.168.1.68:9080/web/lt/new-vacation?p_p_auth=nt6olSiz&p_p_id=evovacation_WAR_EvoVacationportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_evovacation_WAR_EvoVacationportlet_menuItem=my-requests&_evovacation_WAR_EvoVacationportlet_myRequestState=view-vacation&_evovacation_WAR_EvoVacationportlet_backMenuItem=my-requests&_evovacation_WAR_EvoVacationportlet_vacationId="
+						+ VacationId);
+	}
+
+	public void clickWithdraw() {
 		element(withdraw).waitUntilVisible();
 		withdraw.click();
-		}
-	
-	public void insertDuration(String keyword){
+	}
+
+	public void insertDuration(String keyword) {
 		element(duration).waitUntilVisible();
 		duration.sendKeys(keyword);
 	}
-	
-	public void insertInstitution(String keyword){
+
+	public void insertInstitution(String keyword) {
 		element(institution).waitUntilVisible();
 		institution.sendKeys(keyword);
 	}
-	
-	public void insertSpecialReason(String value){
+
+	public void insertSpecialReason(String value) {
 		specialReason.selectByVisibleText(value);
 	}
 
-	 public void selectAVacationType(String vacationType, String keywordDuration,
-			   String keywordInstitution, String value, String com) {
-			  String var;
-			  switch (vacationType) {
-			  case "Holiday": {
-			   var = "CO";
-			   WebElement element = getDriver()
-			     .findElement(
-			       By.cssSelector(String
-			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
-			           + var)));
-			   element.click();
-			   clickComment();
-			   insertComment(com);
-			   break;
-			  }
-			  case "Vacation without payment": {
-			   var = "CF";
-			   WebElement element = getDriver()
-			     .findElement(
-			       By.cssSelector(String
-			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
-			           + var)));
-			    element.click();
-			  insertDuration(keywordDuration);
-			  insertInstitution(keywordInstitution);
-			  clickComment();
-			  insertComment(com);
-			   break;
-			  }
-			  case "Special vacation": {
-			   var = "CS";
-			   WebElement element = getDriver()
-			     .findElement(
-			       By.cssSelector(String
-			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
-			           + var)));
-			    element.click();
-			    insertSpecialReason(value);
-			    clickComment();
-			    insertComment(com);
-			   break;
-			  }
-			  case "Sick leave": 
-			   var = "CM";
-			   WebElement element = getDriver()
-			     .findElement(
-			       By.cssSelector(String
-			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
-			           + var)));
-			    element.click();
-			    clickComment();
-			    insertComment(com);
-			   break;
-			  }
-			 }
-			  
-	
+	public void selectAVacationType(String vacationType,
+			String keywordDuration, String keywordInstitution, String value,
+			String com) {
+		String var;
+		switch (vacationType) {
+		case "Holiday": {
+			var = "CO";
+			WebElement element = getDriver()
+					.findElement(
+							By.cssSelector(String
+									.format("#_evovacation_WAR_EvoVacationportlet_type_"
+											+ var)));
+			element.click();
+			clickComment();
+			insertComment(com);
+			break;
+		}
+		case "Vacation without payment": {
+			var = "CF";
+			WebElement element = getDriver()
+					.findElement(
+							By.cssSelector(String
+									.format("#_evovacation_WAR_EvoVacationportlet_type_"
+											+ var)));
+			element.click();
+			insertDuration(keywordDuration);
+			insertInstitution(keywordInstitution);
+			clickComment();
+			insertComment(com);
+			break;
+		}
+		case "Special vacation": {
+			var = "CS";
+			WebElement element = getDriver()
+					.findElement(
+							By.cssSelector(String
+									.format("#_evovacation_WAR_EvoVacationportlet_type_"
+											+ var)));
+			element.click();
+			insertSpecialReason(value);
+			clickComment();
+			insertComment(com);
+			break;
+		}
+		case "Sick leave":
+			var = "CM";
+			WebElement element = getDriver()
+					.findElement(
+							By.cssSelector(String
+									.format("#_evovacation_WAR_EvoVacationportlet_type_"
+											+ var)));
+			element.click();
+			clickComment();
+			insertComment(com);
+			break;
+		}
+	}
+
 	public void setDate(int month, int day, int year) throws ParseException {
 
 		Calendar calNew = Calendar.getInstance();
@@ -205,31 +207,27 @@ public class NewVacationRequestPage extends PageObject {
 		}
 
 	}
-	
-	 public void checkErrorMessage(String message) {
-		    String elementText = getDriver()
-		      .findElement(
-		        By.cssSelector(".portlet-body >.portlet-msg-error"))
-		        .getText().trim();
-		    if (!elementText.toLowerCase().contains(message.toLowerCase())) {
-		     Assert.fail(String.format("Thef containerf does not contain message!",
-		       message));
-		     System.out.println(message);
-		    }
-		   }
-	
-	 
-	 public void checkSuccessMessage(String message) {
-		    String elementText = getDriver()
-		      .findElement(
-		        By.cssSelector(".portlet-msg-success"))
-		        .getText().trim();
-		    if (!elementText.toLowerCase().contains(message.toLowerCase())) {
-		     Assert.fail(String.format("Thef containerf does not contain message!",
-		       message));
-		     System.out.println(message);
-		    }
-		   }
+
+	public void checkErrorMessage(String message) {
+		String elementText = getDriver()
+				.findElement(
+						By.cssSelector(".portlet-body >.portlet-msg-error"))
+				.getText().trim();
+		if (!elementText.toLowerCase().contains(message.toLowerCase())) {
+			Assert.fail(String.format(
+					"Thef containerf does not contain message!", message));
+			System.out.println(message);
+		}
+	}
+
+	public void checkSuccessMessage(String message) {
+		String elementText = getDriver()
+				.findElement(By.cssSelector(".portlet-msg-success")).getText()
+				.trim();
+		if (!elementText.toLowerCase().contains(message.toLowerCase())) {
+			Assert.fail(String.format(
+					"Thef containerf does not contain message!", message));
+			System.out.println(message);
+		}
+	}
 }
-
-

@@ -86,9 +86,8 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	 
 	 @StepGroup
 	 public void makeANewVacation(String vacationType, String keywordDuration,
-	   String keywordInstitution, int startMonth, int startDay,
-	   int startYear, int endMonth, int endDay, int endYear,
-	    String typeOfSpecialVacation, String com) throws Exception {
+	   String keywordInstitution, String typeOfSpecialVacation, String com, int startMonth, int startDay,
+	   int startYear, int endMonth, int endDay, int endYear) throws Exception {
 	  
 	  selectAVacation(vacationType, keywordDuration, keywordInstitution, typeOfSpecialVacation, com);
 	  enterStartDate(startMonth, startDay, startYear);
