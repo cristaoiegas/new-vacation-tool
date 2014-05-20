@@ -37,16 +37,26 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 		newVacationRequestPage.insertComment(keyword);
 	}
 	
+	
+	@Step
+	 public void selectAVacation(String vacationType, String keywordDuration,
+	   String keywordInstitution, String value) {
+	  newVacationRequestPage.selectAVacationType(vacationType, keywordDuration,
+	    keywordInstitution, value);
+	 }
+	
+
 	public void clickCancel(){
 		newVacationRequestPage.clickCancel();
 	}
+	
 	
 	public String clickSave() throws Exception {
 		newVacationRequestPage.clickSave();
 		return newVacationRequestPage.getVacationId();
 	}
 	
-	@Step
+	
 	 public String getVacationId() {
 	  return newVacationRequestPage.getVacationId();
 	 }

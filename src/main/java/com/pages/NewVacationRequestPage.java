@@ -32,7 +32,11 @@ public class NewVacationRequestPage extends PageObject {
 	@FindBy(css=".aui-button-input aui-button-input-cancel")
 	private WebElement cancel;
 	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_duration input" )
+	private WebElement duration;
 	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_institution input")
+	private WebElement institution;
 	
 	@FindBy(css = "div[aria-hidden='false'] .aui-calendar-title")
 	private WebElementFacade calendarTitle;
@@ -45,6 +49,12 @@ public class NewVacationRequestPage extends PageObject {
 	
 	@FindBy(id="_evovacation_WAR_EvoVacationportlet_withdrawnVacationRequest")
 	private WebElement withdraw;
+	
+	@FindBy(css="#_evovacation_WAR_EvoVacationportlet_specialReason")
+    private WebElementFacade ChooseASpecialVacation;
+	
+	@FindBy(css = "select[name='specialReason']")
+	private WebElementFacade specialReason; 
 	
 	public void clickStartDate(){
 		element(startDate).waitUntilVisible();
@@ -91,6 +101,70 @@ public class NewVacationRequestPage extends PageObject {
 		element(withdraw).waitUntilVisible();
 		withdraw.click();
 		}
+	
+	public void insertDuration(String keyword){
+		element(duration).waitUntilVisible();
+		duration.sendKeys(keyword);
+	}
+	
+	public void insertInstitution(String keyword){
+		element(institution).waitUntilVisible();
+		institution.sendKeys(keyword);
+	}
+	
+	public void insertSpecialReason(String value){
+		specialReason.selectByVisibleText(value);
+	}
+
+	 public void selectAVacationType(String vacationType, String keywordDuration,
+			   String keywordInstitution, String value) {
+			  String var;
+			  switch (vacationType) {
+			  case "Holiday": {
+			   var = "CO";
+			   WebElement element = getDriver()
+			     .findElement(
+			       By.cssSelector(String
+			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
+			           + var)));
+			   element.click();
+			   break;
+			  }
+			  case "Vacation without payment": {
+			   var = "CF";
+			   WebElement element = getDriver()
+			     .findElement(
+			       By.cssSelector(String
+			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
+			           + var)));
+			    element.click();
+			  insertDuration(keywordDuration);
+			  insertInstitution(keywordInstitution);
+			   break;
+			  }
+			  case "Special vacation": {
+			   var = "CS";
+			   WebElement element = getDriver()
+			     .findElement(
+			       By.cssSelector(String
+			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
+			           + var)));
+			    element.click();
+			    insertSpecialReason(value);
+			   break;
+			  }
+			  case "Sick leave": 
+			   var = "CM";
+			   WebElement element = getDriver()
+			     .findElement(
+			       By.cssSelector(String
+			         .format("#_evovacation_WAR_EvoVacationportlet_type_"
+			           + var)));
+			    element.click();
+			   break;
+			  }
+			 }
+			  
 	
 	public void setDate(int month, int day, int year) throws ParseException {
 
