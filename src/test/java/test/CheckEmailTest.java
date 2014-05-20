@@ -22,7 +22,7 @@ import com.steps.VerifyEmailSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class NewRequestTest {
+public class CheckEmailTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -44,6 +44,9 @@ public class NewRequestTest {
 
 	@Steps
 	public MyRequestSteps myRequestSteps;
+	
+	@Steps
+	public VerifyEmailSteps verifyemail = new VerifyEmailSteps();
 
 	@Test
 	public void testare() throws Exception {
@@ -51,29 +54,11 @@ public class NewRequestTest {
 		logInSteps.logIn(Constants.user_usual2, Constants.password_usual2);
 		enterDeparmentMenu.click_newVacationSection();
 		newVacationrequest.newVacationReq();
-	    newRequestSteps.selectAVacation("Sick leave", "", "", "","");
 		newRequestSteps.enterStartDate(10, 7, 2014);
 		newRequestSteps.enterEndDate(10, 9, 2014);
-		//newRequestSteps.clickComment();
-		//newRequestSteps.insertComment("blabla")
-		
-		newRequestSteps.checkSuccessMessage("Your request completed successfully.");
-		String vacationId = newRequestSteps.getVacationId();
-		newRequestSteps.goToRequest(vacationId);
-		newRequestSteps.withdrawRequest();
-
-
-
-		//    	myRequestSteps.click_Requests();
-		//    	myRequestSteps.click_dropDown("75");
-		//    	myRequestSteps.clickOnARequestIsInTheTableList(vacationID);
-		//    	System.out.println(vacationID);
-
-		//    	newRequestSteps.clickCancel();
-
-
-		//    	
-		//logInSteps.logOut();
+		newRequestSteps.clickSave();
+		verifyemail.verifyEmail("You have submitted a new Vacation Request", "Dear Dani Tise,  You have submitted a new Vacation Request. The Vacation interval is: 07/10/2014 - 09/10/2014.  Sincerely,  EvoPortal Team");		
+	
 	} 
 
 }
