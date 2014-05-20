@@ -10,15 +10,14 @@ import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-
+import com.pages.NewVacationMenuPage;
 import com.requirements.Application;
 import com.requirements.tools.Constants;
 import com.steps.DepartmentMenuSteps;
 import com.steps.LoginSteps;
-import com.steps.NewVacationRequestSteps;
-import com.steps.NewVacationMenuSteps;
 import com.steps.MyRequestSteps;
-import com.steps.VerifyEmailSteps;
+import com.steps.NewVacationMenuSteps;
+import com.steps.NewVacationRequestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
@@ -30,50 +29,38 @@ public class NewRequestTest {
 	@ManagedPages(defaultUrl = "http://192.168.1.68:9080/login")
 	public Pages pages;
 
-	@Steps
-	public LoginSteps logInSteps;
-
-	@Steps
-	public DepartmentMenuSteps enterDeparmentMenu;
-
-	@Steps
-	public NewVacationMenuSteps newVacationrequest;
-
-	@Steps
-	public NewVacationRequestSteps newRequestSteps;
-
-	@Steps
-	public MyRequestSteps myRequestSteps;
-
-	@Test
-	public void testare() throws Exception {
-		logInSteps.openHomePage();
-		logInSteps.logIn(Constants.user_usual2, Constants.password_usual2);
-		enterDeparmentMenu.click_newVacationSection();
-		newVacationrequest.newVacationReq();
-	    newRequestSteps.selectAVacation("Sick leave", "", "", "","");
-		newRequestSteps.enterStartDate(10, 7, 2014);
-		newRequestSteps.enterEndDate(10, 9, 2014);
-		//newRequestSteps.clickComment();
-		//newRequestSteps.insertComment("blabla")
-		
-		newRequestSteps.checkSuccessMessage("Your request completed successfully.");
-		String vacationId = newRequestSteps.getVacationId();
-		newRequestSteps.goToRequest(vacationId);
-		newRequestSteps.withdrawRequest();
-
-
-
-		//    	myRequestSteps.click_Requests();
-		//    	myRequestSteps.click_dropDown("75");
-		//    	myRequestSteps.clickOnARequestIsInTheTableList(vacationID);
-		//    	System.out.println(vacationID);
-
-		//    	newRequestSteps.clickCancel();
-
-
-		//    	
-		//logInSteps.logOut();
-	} 
+    @Steps
+    public LoginSteps logInSteps1;
+  
+    @Steps
+    public DepartmentMenuSteps enterDeparmentMenu1;
+  
+    @Steps
+    public NewVacationMenuSteps newVacationMenuSteps;
+    
+    @Steps
+    public NewVacationRequestSteps newRequestSteps1;
+    
+    @Steps
+    public MyRequestSteps myRequestSteps1;
+    
+    @Test
+    public void testare() throws Exception {
+    	logInSteps1.openHomePage();
+      	logInSteps1.logIn(Constants.user_dm, Constants.password_dm);
+    	enterDeparmentMenu1.click_newVacationSection();
+    	newVacationMenuSteps.newVacationReq();
+    	newRequestSteps1.enterStartDate(19, 05, 2014);
+    	newRequestSteps1.enterEndDate(20, 05, 2014);
+    	newRequestSteps1.clickSave();
+  
+    	String vacationId = newRequestSteps1.getVacationId();
+    	System.out.println(vacationId);
+    	newVacationMenuSteps.clickMyRequests();
+    	myRequestSteps1.click_dropDown("75");
+    	myRequestSteps1.clickOnARequestIsInTheTableList(vacationId);
+    	
+} 
+	
 
 }

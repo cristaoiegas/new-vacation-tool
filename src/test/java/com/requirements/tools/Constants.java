@@ -7,6 +7,8 @@ public static String user_dm = "dmDOI";
 public static String password_dm = "dmDOI";
 public static String user_usual = "crista.oiegas";
 public static String password_usual = "parolatest";
+public static String user_usual1 = "george";
+public static String password_usual1= "gimmy";
 public static String user_usual2 = "danit";
 public static String password_usual2 = "veverita";
 }

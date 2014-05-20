@@ -29,14 +29,8 @@ public class MyFreeDaysPage extends PageObject {
 	@FindBy(css = ".my-free-days-content table tbody tr:nth-child(5) td:nth-child(2)")
 	private WebElementFacade FreeDaysGivenInCurrentYearNumber;
 
-	@FindBy(css = ".my-free-days-content table tbody tr:nth-child(6) td:nth-child(2)")
-	private WebElementFacade FreeDaysLeftfromLastYearNumber;
-
 	@FindBy(css = ".my-free-days-content table tbody tr:nth-child(7) td:nth-child(2)")
 	private WebElementFacade ExtraDaysReceivedNumber;
-
-	@FindBy(css = ".my-free-days-content table tbody tr:nth-child(8) td:nth-child(2)")
-	private WebElementFacade ExtraDaysTakenNumber;
 
 	@FindBy(css = ".my-free-days-content table tbody tr:nth-child(9) td:nth-child(2)")
 	private WebElementFacade VacationDaysTakenThisYearNumber;

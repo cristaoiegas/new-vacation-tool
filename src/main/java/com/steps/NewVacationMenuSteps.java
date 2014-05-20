@@ -30,8 +30,8 @@ public class NewVacationMenuSteps extends ScenarioSteps {
     }
     
 	@Step
-    public void click_Requests(){
-    	newVacationMenuPage.click_myRequests();
+    public void clickInbox(){
+    	newVacationMenuPage.click_Inbox();
     }
     
 }

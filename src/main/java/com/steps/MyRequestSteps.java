@@ -36,8 +36,9 @@ public class MyRequestSteps extends ScenarioSteps {
 		return vacationRequestPage.getVacationId();
 	}
 	
-	public void clickOnARequestIsInTheTableList(String vacationId){
+	public void clickOnARequestIsInTheTableList(String vacationId) throws Exception{
 		myRequestPage.clickOnARequestIsInTheTableList(vacationId);
+		
 	}
 	@Step
     public void click_Requests() throws Exception{
@@ -50,7 +51,6 @@ public class MyRequestSteps extends ScenarioSteps {
     	Thread.sleep(4000);
 	}
 
-    
     @Step
     public void click_myRequestsCheck() throws Exception{
     	myRequestPage.clickHoliday();

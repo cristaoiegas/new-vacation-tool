@@ -80,7 +80,43 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkSuccessMessage(String message){
+	 public String getVacationId1() {
+	  return newVacationRequestPage.getVacationId();
+	 }
+	 
+//	 @Step
+//	 public void goToRequest(String vacationId){
+//	  newVacationRequestPage.goToRequest(vacationId);
+//	 }
+	 
+	 @Step
+	 public void withdrawRequest1() throws Exception{ 
+		 newVacationRequestPage.clickWithdraw();
+		 //Thread.sleep(3000);
+	 }
+	
+	 @Step
+	 public void checkErrorMessage1(String message){
+		 newVacationRequestPage.checkErrorMessage(message);
+	 }
+	 
+	 @Step
+	 public void checkSuccessMessage(String message){
+		 newVacationRequestPage.checkSuccessMessage(message);
+	 }
+	 
+	 @StepGroup
+	 public void makeANewVacation(String vacationType, String keywordDuration,
+	   String keywordInstitution, int startMonth, int startDay,
+	   int startYear, int endMonth, int endDay, int endYear,
+	    String typeOfSpecialVacation, String com) throws Exception {
+	  
+	  selectAVacation(vacationType, keywordDuration, keywordInstitution, typeOfSpecialVacation, com);
+	  enterStartDate(startMonth, startDay, startYear);
+	  enterEndDate(endMonth, endDay, endYear);
+	  String vacationID=clickSave();
+		  }
+	public void checkSuccessMessage1(String message){
 		newVacationRequestPage.checkSuccessMessage(message);
 	}
 
