@@ -103,12 +103,12 @@ public class NewRequestDataDrivenTest {
 		logInSteps.logIn(Constants.user_usual, Constants.password_usual);
 		enterDeparmentMenu.click_newVacationSection();
 		newVacationrequest.newVacationReq();
-	 	String vacationId = newRequestSteps.makeANewVacation(vacationType, keywordDuration,
+	 	String vacationID = newRequestSteps.makeANewVacation(vacationType, keywordDuration,
 	    keywordInstitution, typeOfSpecialVacation, com,  startMonth, startDay, startYear, endMonth, endDay, endYear);
 	    newRequestSteps.checkSuccessMessage("Your request completed successfully.");
-//	    String vacationId = newRequestSteps.getVacationId();
-//		newRequestSteps.goToRequest(vacationId);
-//		newRequestSteps.withdrawRequest();
+	    String vacationId = newRequestSteps.getVacationId();
+	    newRequestSteps.goToRequest(vacationId);
+	    newRequestSteps.withdrawRequest();
 	}
 	
 
