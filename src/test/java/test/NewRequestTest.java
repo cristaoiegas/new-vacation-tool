@@ -54,7 +54,7 @@ public class NewRequestTest {
 		logInSteps.logIn(Constants.user_usual2, Constants.password_usual2);
 		enterDeparmentMenu.click_newVacationSection();
 		newVacationrequest.newVacationReq();
-	    newRequestSteps.selectAVacation("Sick leave", "", "", "");
+	    newRequestSteps.selectAVacation("Sick leave", "", "", "","");
 		newRequestSteps.enterStartDate(10, 7, 2014);
 		newRequestSteps.enterEndDate(10, 9, 2014);
 		newRequestSteps.clickComment();
@@ -63,12 +63,12 @@ public class NewRequestTest {
 		String vacationID = newRequestSteps.clickSave();
 		verifyemail.verifyEmail("You have submitted a new Vacation Request", "Dear Dani Tise,  You have submitted a new Vacation Request. The Vacation interval is: 07/10/2014 - 09/10/2014.  Sincerely,  EvoPortal Team");
 		
+		newRequestSteps.checkSuccessMessage("Your request completed successfully.");
+		String vacationId = newRequestSteps.getVacationId();
+		newRequestSteps.goToRequest(vacationId);
 		
 		
-		//String vacationId = newRequestSteps.getVacationId();
-		
-		//newRequestSteps.goToRequest(vacationId);
-		//newRequestSteps.withdrawRequest();
+		newRequestSteps.withdrawRequest();
 
 
 
