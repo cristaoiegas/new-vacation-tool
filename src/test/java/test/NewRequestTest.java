@@ -18,6 +18,7 @@ import com.steps.LoginSteps;
 import com.steps.NewVacationRequestSteps;
 import com.steps.NewVacationMenuSteps;
 import com.steps.MyRequestSteps;
+import com.steps.VerifyEmailSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
@@ -41,28 +42,33 @@ public class NewRequestTest {
 	@Steps
 	public NewVacationRequestSteps newRequestSteps;
 
-
 	@Steps
 	public MyRequestSteps myRequestSteps;
+	
+	//@Steps
+	public VerifyEmailSteps verifyemail = new VerifyEmailSteps();
 
 	@Test
 	public void testare() throws Exception {
 		logInSteps.openHomePage();
-		logInSteps.logIn(Constants.user_usual, Constants.password_usual);
+		logInSteps.logIn(Constants.user_usual2, Constants.password_usual2);
 		enterDeparmentMenu.click_newVacationSection();
 		newVacationrequest.newVacationReq();
-		newRequestSteps.selectAVacation("Sick leave", "", "", "");
+	    newRequestSteps.selectAVacation("Sick leave", "", "", "");
 		newRequestSteps.enterStartDate(10, 7, 2014);
 		newRequestSteps.enterEndDate(10, 9, 2014);
 		newRequestSteps.clickComment();
 		newRequestSteps.insertComment("blabla");
 
 		String vacationID = newRequestSteps.clickSave();
-
-		String vacationId = newRequestSteps.getVacationId();
-		newRequestSteps.goToRequest(vacationId);
+		verifyemail.verifyEmail("You have submitted a new Vacation Request", "Dear Dani Tise,  You have submitted a new Vacation Request. The Vacation interval is: 07/10/2014 - 09/10/2014.  Sincerely,  EvoPortal Team");
 		
-		newRequestSteps.withdrawRequest();
+		
+		
+		//String vacationId = newRequestSteps.getVacationId();
+		
+		//newRequestSteps.goToRequest(vacationId);
+		//newRequestSteps.withdrawRequest();
 
 
 
