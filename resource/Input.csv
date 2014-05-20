@@ -1,2 +1,4 @@
 vacationType,keywordDuration,keywordInstitution,typeOfSpecialVacation,com,startMonth,startDay,startYear,endMonth,endDay,endYear
 Vacation without payment,2zile,scoala,X,bla,4,10,2014,4,11,2014
+Holiday,A,B,C,ne vom simti bine, 4,10,2014,4,11,2014
+Special vacation,A,B,Child birth,it's a boy,5,21,2014,5,22,2014
