@@ -52,8 +52,8 @@ public class InboxTest {
       	logInSteps.logIn(Constants.user_usual1, Constants.password_usual1);
     	enterDeparmentMenu.click_newVacationSection();
     	newVacationMenuSteps.newVacationReq();
-    	newRequestSteps.enterStartDate(5, 19, 2014);
-    	newRequestSteps.enterEndDate(5, 19, 2014);
+    	newRequestSteps.enterStartDate(5, 20, 2014);
+    	newRequestSteps.enterEndDate(5, 20, 2014);
     	String varID = newRequestSteps.clickSave();
      	
      	logInSteps.logOut();

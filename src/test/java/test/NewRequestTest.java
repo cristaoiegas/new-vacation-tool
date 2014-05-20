@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.junit.runners.ThucydidesRunner;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -41,9 +42,6 @@ public class NewRequestTest {
     public NewVacationRequestSteps newRequestSteps1;
     
     @Steps
-    public NewVacationMenuPage newVacationMenuPage;
-     
-    @Steps
     public MyRequestSteps myRequestSteps1;
     
     @Test
@@ -63,4 +61,6 @@ public class NewRequestTest {
     	myRequestSteps1.clickOnARequestIsInTheTableList(vacationId);
     	
 } 
+	
+
 }

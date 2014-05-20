@@ -10,56 +10,77 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	private static final long serialVersionUID = 1L;
 	NewVacationRequestPage newVacationRequestPage;
 
-	
+
 
 
 	@Step
-    public void enterStartDate(int month, int day, int year) throws Exception {
+	public void enterStartDate(int month, int day, int year) throws Exception {
 
 		newVacationRequestPage.clickStartDate();
 		newVacationRequestPage.setDate(month, day, year);
-    	
-    	Thread.sleep(3000);
-    }
+
+		Thread.sleep(3000);
+	}
 
 	public void enterEndDate(int month, int day, int year) throws Exception {
 
 		newVacationRequestPage.clickEndDate();
 		newVacationRequestPage.setDate(month, day, year);
-    	
-    	Thread.sleep(3000);
-    }
-	
+
+		Thread.sleep(3000);
+	}
+
 	@Step
 	public void clickComment(){
 		newVacationRequestPage.clickComment();
 	}
-	
+
 	public void insertComment(String keyword){
 		newVacationRequestPage.insertComment(keyword);
 	}
-	
-	
+
+
 	@Step
-	 public void selectAVacation(String vacationType, String keywordDuration,
-	   String keywordInstitution, String value, String com) {
-	  newVacationRequestPage.selectAVacationType(vacationType, keywordDuration,
-	    keywordInstitution, value, com);
-	 }
-	
+	public void selectAVacation(String vacationType, String keywordDuration,
+			String keywordInstitution, String value, String com) {
+		newVacationRequestPage.selectAVacationType(vacationType, keywordDuration,
+				keywordInstitution, value, com);
+	}
+
 	@Step
 	public void clickCancel(){
 		newVacationRequestPage.clickCancel();
 	}
-	
+
 	@Step
 	public String clickSave() throws Exception {
 		newVacationRequestPage.clickSave();
 		return newVacationRequestPage.getVacationId();
 	}
-	
+
 	@Step
-	 public String getVacationId() {
+	public String getVacationId() {
+		return newVacationRequestPage.getVacationId();
+	}
+
+	@Step
+	public void goToRequest(String vacationId){
+		newVacationRequestPage.goToRequest(vacationId);
+	}
+
+	@Step
+	public void withdrawRequest() throws Exception{ 
+		newVacationRequestPage.clickWithdraw();
+		Thread.sleep(3000);
+	}
+
+	@Step
+	public void checkErrorMessage(String message){
+		newVacationRequestPage.checkErrorMessage(message);
+	}
+
+	@Step
+	 public String getVacationId1() {
 	  return newVacationRequestPage.getVacationId();
 	 }
 	 
@@ -69,13 +90,13 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 //	 }
 	 
 	 @Step
-	 public void withdrawRequest() throws Exception{ 
+	 public void withdrawRequest1() throws Exception{ 
 		 newVacationRequestPage.clickWithdraw();
 		 //Thread.sleep(3000);
 	 }
 	
 	 @Step
-	 public void checkErrorMessage(String message){
+	 public void checkErrorMessage1(String message){
 		 newVacationRequestPage.checkErrorMessage(message);
 	 }
 	 
@@ -95,6 +116,20 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 	  enterEndDate(endMonth, endDay, endYear);
 	  String vacationID=clickSave();
 		  }
+	public void checkSuccessMessage1(String message){
+		newVacationRequestPage.checkSuccessMessage(message);
+	}
+
+	@StepGroup
+	public String makeANewVacation(String vacationType, String keywordDuration,
+			String keywordInstitution, String typeOfSpecialVacation, String com, int startMonth, int startDay,
+			int startYear, int endMonth, int endDay, int endYear) throws Exception {
+
+		selectAVacation(vacationType, keywordDuration, keywordInstitution, typeOfSpecialVacation, com);
+		enterStartDate(startMonth, startDay, startYear);
+		enterEndDate(endMonth, endDay, endYear);
+		return clickSave();
+	}
 
 }
 

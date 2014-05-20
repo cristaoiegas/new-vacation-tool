@@ -24,7 +24,7 @@ import com.steps.MyRequestSteps;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 
 @Story(Application.Search.SearchByKeyword.class)
-@RunWith(ThucydidesRunner.class)
+@RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resource/Input.csv")
 
 public class NewRequestDataDrivenTest {
@@ -72,43 +72,43 @@ public class NewRequestDataDrivenTest {
 	public void setKeywordInstitution(String keywordInstitution) {
 		this.keywordInstitution = keywordInstitution;
 	}
-	public String getCom() {
-		return com;
-	}
-	public void setCom(String com) {
-		this.com = com;
-	}
 	public String getTypeOfSpecialVacation() {
 		return typeOfSpecialVacation;
 	}
 	public void setTypeOfSpecialVacation(String typeOfSpecialVacation) {
 		this.typeOfSpecialVacation = typeOfSpecialVacation;
 	}
+	public String getCom() {
+		return com;
+	}
+	public void setCom(String com) {
+		this.com = com;
+	}
 	
-	 @Test
-	 public void failedRequestDataDriven() throws Exception {
-	  
-
-	 enterDeparmentMenu.click_newVacationSection();
-	 newVacationrequest.newVacationReq();
-	 newRequestSteps.makeANewVacation(vacationType, keywordDuration,
-	 keywordInstitution, startMonth, startDay, startYear, endMonth,	 endDay, endYear, typeOfSpecialVacation,com);
-	 String vacationID = newRequestSteps.clickSave();
-	 newRequestSteps.checkErrorMessage("Your request failed to complete.");
-	  
-	 }
+//	 @Test
+//	 public void failedRequestDataDriven() throws Exception {
+//	  
+//
+//	 enterDeparmentMenu.click_newVacationSection();
+//	 newVacationrequest.newVacationReq();
+//	 newRequestSteps.makeANewVacation(vacationType, keywordDuration,
+//	 keywordInstitution, startMonth, startDay, startYear, endMonth,	 endDay, endYear, typeOfSpecialVacation,com);
+////	 String vacationID = newRequestSteps.clickSave();
+//	 newRequestSteps.checkErrorMessage("Your request failed to complete.");
+//	  
+//	 }
 	 @Test
 	 public void succesfullRequestDataDriven() throws Exception {
 		logInSteps.openHomePage();
 		logInSteps.logIn(Constants.user_usual, Constants.password_usual);
 		enterDeparmentMenu.click_newVacationSection();
 		newVacationrequest.newVacationReq();
-	 	newRequestSteps.makeANewVacation(vacationType, keywordDuration,
-	    keywordInstitution,  startMonth, startDay, startYear, endMonth, endDay, endYear, typeOfSpecialVacation, com);
+	 	String vacationID = newRequestSteps.makeANewVacation(vacationType, keywordDuration,
+	    keywordInstitution, typeOfSpecialVacation, com,  startMonth, startDay, startYear, endMonth, endDay, endYear);
 	    newRequestSteps.checkSuccessMessage("Your request completed successfully.");
-//	    String vacationId = newRequestSteps.getVacationId();
-//		newRequestSteps.goToRequest(vacationId);
-//		newRequestSteps.withdrawRequest();
+	    String vacationId = newRequestSteps.getVacationId();
+	    newRequestSteps.goToRequest(vacationId);
+	    newRequestSteps.withdrawRequest();
 	}
 	
 
