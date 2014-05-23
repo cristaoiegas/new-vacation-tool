@@ -88,15 +88,17 @@ public class NewRequestDataDrivenTest {
 //	 @Test
 //	 public void failedRequestDataDriven() throws Exception {
 //	  
-//
-//	 enterDeparmentMenu.click_newVacationSection();
-//	 newVacationrequest.newVacationReq();
-//	 newRequestSteps.makeANewVacation(vacationType, keywordDuration,
-//	 keywordInstitution, startMonth, startDay, startYear, endMonth,	 endDay, endYear, typeOfSpecialVacation,com);
-////	 String vacationID = newRequestSteps.clickSave();
-//	 newRequestSteps.checkErrorMessage("Your request failed to complete.");
-//	  
+//		 logInSteps.openHomePage();
+//			logInSteps.logIn(Constants.user_usual, Constants.password_usual);
+//			enterDeparmentMenu.click_newVacationSection();
+//			newVacationrequest.newVacationReq();
+//		 	newRequestSteps.makeANewVacation(vacationType, keywordDuration,
+//		    keywordInstitution, typeOfSpecialVacation, com,  startMonth, startDay, startYear, endMonth, endDay, endYear);
+//		    newRequestSteps.checkErrorMessage("Invalid time range: start date needs to be before/equal with end date!");
+////		    String vacationId = newRequestSteps.getVacationId();
 //	 }
+	  
+	 
 	 @Test
 	 public void succesfullRequestDataDriven() throws Exception {
 		logInSteps.openHomePage();

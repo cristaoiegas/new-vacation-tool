@@ -120,6 +120,17 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 		newVacationRequestPage.checkSuccessMessage(message);
 	}
 
+//	@StepGroup
+//	public void makeANewVacation(String vacationType, String keywordDuration,
+//			String keywordInstitution, String typeOfSpecialVacation, String com, int startMonth, int startDay,
+//			int startYear, int endMonth, int endDay, int endYear) throws Exception {
+//
+//		selectAVacation(vacationType, keywordDuration, keywordInstitution, typeOfSpecialVacation, com);
+//		enterStartDate(startMonth, startDay, startYear);
+//		enterEndDate(endMonth, endDay, endYear);
+//		
+//	}
+	
 	@StepGroup
 	public String makeANewVacation(String vacationType, String keywordDuration,
 			String keywordInstitution, String typeOfSpecialVacation, String com, int startMonth, int startDay,
@@ -130,7 +141,6 @@ public class NewVacationRequestSteps extends ScenarioSteps {
 		enterEndDate(endMonth, endDay, endYear);
 		return clickSave();
 	}
-
 }
 
 
