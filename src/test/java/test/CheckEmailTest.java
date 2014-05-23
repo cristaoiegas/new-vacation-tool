@@ -57,7 +57,7 @@ public class CheckEmailTest {
 		newRequestSteps.enterStartDate(10, 7, 2014);
 		newRequestSteps.enterEndDate(10, 9, 2014);
 		newRequestSteps.clickSave();
-		verifyemail.verifyEmail("You have submitted a new Vacation Request", "Dear Dani Tise,  You have submitted a new Vacation Request. The Vacation interval is: 07/10/2014 - 09/10/2014.  Sincerely,  EvoPortal Team");		
+		verifyemail.verifyEmail("You have submitted a new Vacation Request", "Dear Crista Oiegas,  You have submitted a new Vacation Request. The Vacation interval is: 07/10/2014 - 09/10/2014.  Sincerely,  EvoPortal Team");		
 	
 	} 
 
